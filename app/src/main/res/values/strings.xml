@@ -26,4 +26,12 @@
     <string name="resume_user_title">RESUME USER!</string>
 
     <string name="instructions_title">INSTRUCTIONS!</string>
+
+    <!-- POKEMON LIST -->
+    <string name="unknown_pokemon">"?????"</string>
+    <string name="list_item_1">Pokemon 1</string>
+    <string name="list_item_2">Pokemon 2</string>
+    <string name="list_item_3">Pokemon 3</string>
+    <string name="list_item_4">Pokemon 4</string>
+    <string name="list_item_5">Pokemon 5</string>
 </resources>

@@ -1,30 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/pokemon_blue">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/pokemon_list_boarder"
-        android:orientation="horizontal">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="100sp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/textView"
-            android:scaleX="4"
-            android:scaleY="4" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/pokemon1"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
+                android:layout_weight="1"
+                android:contentDescription="@string/list_item_1"
+                app:srcCompat="@drawable/p001_no_pokemon" />
+
+            <ImageView
+                android:id="@+id/pokemon2"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
+                android:layout_weight="1"
+                android:contentDescription="@string/list_item_2"
+                app:srcCompat="@drawable/p002_no_pokemon" />
+
+            <ImageView
+                android:id="@+id/pokemon3"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
+                android:layout_weight="1"
+                android:contentDescription="@string/list_item_3"
+                app:srcCompat="@drawable/p003_no_pokemon" />
+
+            <ImageView
+                android:id="@+id/pokemon4"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
+                android:layout_weight="1"
+                android:contentDescription="@string/list_item_4"
+                app:srcCompat="@drawable/p004_no_pokemon" />
+
+            <ImageView
+                android:id="@+id/pokemon5"
+                android:layout_width="@dimen/pokemon_icon_width"
+                android:layout_height="@dimen/pokemon_icon_height"
+                android:layout_weight="1"
+                android:contentDescription="@string/list_item_5"
+                app:srcCompat="@drawable/p005_no_pokemon" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/pokemon1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/unknown_pokemon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemon2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/unknown_pokemon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemon3_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/unknown_pokemon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemon4_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/unknown_pokemon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemon5_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/unknown_pokemon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

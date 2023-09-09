@@ -47,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(activityNewUser);
         });
         resume_button.setOnClickListener(view -> {
-                Intent activityResumeUser = new Intent(getApplicationContext(), ResumeUserActivity.class);
-                startActivity(activityResumeUser);
+                //Intent activityResumeUser = new Intent(getApplicationContext(), ResumeUserActivity.class);
+                //startActivity(activityResumeUser);
+                Intent activityPokedex = new Intent(getApplicationContext(), PokedexActivity.class);
+                startActivity(activityPokedex);
         });
     }
 }
