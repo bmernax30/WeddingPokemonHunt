@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewUserActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pokemon_dark_blue"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/new_user_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/new_user_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="@color/pokemon_yellow"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/new_user_oak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/pokemon_dark_blue"
+            app:srcCompat="@drawable/prof_oak" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/new_user_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/new_user_description"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/pokemon_yellow"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/new_user_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:paddingBottom="25dp"
+                android:text="@string/new_user_instructions"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/pokemon_yellow"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/new_user_name_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="@string/new_user_name_input_hint"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/new_user_start_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pokemon_dark_blue"
+            android:contentDescription="@string/new_user_start_button_content_description"
+            android:paddingTop="10dp"
+            android:scaleX=".8"
+            android:scaleY=".8"
+            app:srcCompat="@drawable/start_adventure_button" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

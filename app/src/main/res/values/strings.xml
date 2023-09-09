@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">WeddingPokemonHunt</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="main_title_cd">Pokemon Title</string>
+    <string name="main_characters_cd">Pokemon Title Characters</string>
+    <string name="main_mulverna_title">MULVERNA WEDDING</string>
+    <string name="main_hunt_title">HUNT</string>
+    <string name="main_button_new_text">NEW</string>
+    <string name="main_button_resume_text">RESUME</string>
+
+    <string name="new_user_title">NEW USER!</string>
+    <string name="new_user_description">Welcome to the wonderful world of Pokemon.</string>
+    <string name="new_user_instructions">Type your name and begin your Pokemon journey.</string>
+    <string name="new_user_start_button_content_description">START YOUR ADVENTURE</string>
+    <string name="new_user_name_input_hint">Enter Name</string>
+
+    <string name="resume_user_title">RESUME USER!</string>
+
+    <string name="instructions_title">INSTRUCTIONS!</string>
+</resources>
