@@ -221,45 +221,45 @@ public class pokemon_list_adapter extends ArrayAdapter<pokemon_list> {
         if(pokemon_found[1] == 1)
         {
             pokemon_image_2.setBackgroundResource(pokemon_images.getResourceId(pokemon_ids[1],0));
-            pokemon_name_1.setText(pokemon_names[pokemon_ids[1]]);
+            pokemon_name_2.setText(pokemon_names[pokemon_ids[1]]);
         }
         else
         {
             pokemon_image_2.setBackgroundResource(no_pokemon_images.getResourceId(pokemon_ids[1],0));
-            pokemon_name_1.setText(R.string.unknown_pokemon);
+            pokemon_name_2.setText(R.string.unknown_pokemon);
         }
 
         if(pokemon_found[2] == 1)
         {
             pokemon_image_3.setBackgroundResource(pokemon_images.getResourceId(pokemon_ids[2],0));
-            pokemon_name_1.setText(pokemon_names[pokemon_ids[2]]);
+            pokemon_name_3.setText(pokemon_names[pokemon_ids[2]]);
         }
         else
         {
             pokemon_image_3.setBackgroundResource(no_pokemon_images.getResourceId(pokemon_ids[2],0));
-            pokemon_name_1.setText(R.string.unknown_pokemon);
+            pokemon_name_3.setText(R.string.unknown_pokemon);
         }
 
         if(pokemon_found[3] == 1)
         {
             pokemon_image_4.setBackgroundResource(pokemon_images.getResourceId(pokemon_ids[3],0));
-            pokemon_name_1.setText(pokemon_names[pokemon_ids[3]]);
+            pokemon_name_4.setText(pokemon_names[pokemon_ids[3]]);
         }
         else
         {
             pokemon_image_4.setBackgroundResource(no_pokemon_images.getResourceId(pokemon_ids[3],0));
-            pokemon_name_1.setText(R.string.unknown_pokemon);
+            pokemon_name_4.setText(R.string.unknown_pokemon);
         }
 
         if(pokemon_found[4] == 1)
         {
             pokemon_image_5.setBackgroundResource(pokemon_images.getResourceId(pokemon_ids[4],0));
-            pokemon_name_1.setText(pokemon_names[pokemon_ids[4]]);
+            pokemon_name_5.setText(pokemon_names[pokemon_ids[4]]);
         }
         else
         {
             pokemon_image_5.setBackgroundResource(no_pokemon_images.getResourceId(pokemon_ids[4],0));
-            pokemon_name_1.setText(R.string.unknown_pokemon);
+            pokemon_name_5.setText(R.string.unknown_pokemon);
         }
 
         pokemon_images.recycle();

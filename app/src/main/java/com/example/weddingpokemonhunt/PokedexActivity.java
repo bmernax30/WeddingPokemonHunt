@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class PokedexActivity extends AppCompatActivity {
     private pokemon_list_adapter pokemon_adapter;
     private ArrayList<pokemon_list> pokemon;
+    int LINES_OF_POKEMON = 30;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class PokedexActivity extends AppCompatActivity {
         tmp_found[4] = 1;
         //Add to Array List
         //5 total lines
-        for(int i=0; i < 5; i++)
+        for(int i=0; i < LINES_OF_POKEMON; i++)
         {
             pokemon.add(new pokemon_list(tmp_pokemon, tmp_found));
             tmp_pokemon[0] = tmp_pokemon[0] + 5;

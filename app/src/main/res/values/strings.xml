@@ -34,4 +34,9 @@
     <string name="list_item_3">Pokemon 3</string>
     <string name="list_item_4">Pokemon 4</string>
     <string name="list_item_5">Pokemon 5</string>
+
+    <!-- POKEDEX -->
+    <string name="default_pokemon_score">0</string>
+    <string name="total_pokemon_score">/150</string>
+    <string name="pokedex_header">POKEDEX</string>
 </resources>

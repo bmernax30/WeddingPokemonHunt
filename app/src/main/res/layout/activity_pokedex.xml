@@ -3,15 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pokemon_blue"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/pokedex_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pokemon_yellow"
+            android:gravity="center"
+            android:text="@string/pokedex_header"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/pokemon_dark_blue"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pokemon_caught"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokedex_title"
+            android:text="@string/default_pokemon_score"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/total_pokemon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokedex_title"
+            android:layout_toEndOf="@id/pokemon_caught"
+            android:text="@string/total_pokemon_score"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <ProgressBar
+            android:id="@+id/pokemon_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/pokedex_title"
+            android:layout_alignBottom="@id/total_pokemon"
+            android:layout_toEndOf="@id/total_pokemon"
+            android:background="@drawable/pokemon_list_boarder"
+            android:max="150"
+            android:progress="50" />
+
         <ListView
             android:id="@+id/activity_pokemon_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_below="@id/pokemon_caught" />
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
