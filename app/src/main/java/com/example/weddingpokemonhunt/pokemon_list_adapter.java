@@ -187,16 +187,16 @@ public class pokemon_list_adapter extends ArrayAdapter<pokemon_list> {
             convertView = inflater.inflate(R.layout.pokemon_list_item,parent,false);
         }
         //Get GUI Items
-        ImageView pokemon_image_1 = convertView.findViewById(R.id.pokemon1);
-        ImageView pokemon_image_2 = convertView.findViewById(R.id.pokemon2);
-        ImageView pokemon_image_3 = convertView.findViewById(R.id.pokemon3);
-        ImageView pokemon_image_4 = convertView.findViewById(R.id.pokemon4);
-        ImageView pokemon_image_5 = convertView.findViewById(R.id.pokemon5);
-        TextView pokemon_name_1 = convertView.findViewById(R.id.pokemon1_title);
-        TextView pokemon_name_2 = convertView.findViewById(R.id.pokemon2_title);
-        TextView pokemon_name_3 = convertView.findViewById(R.id.pokemon3_title);
-        TextView pokemon_name_4 = convertView.findViewById(R.id.pokemon4_title);
-        TextView pokemon_name_5 = convertView.findViewById(R.id.pokemon5_title);
+        ImageView pokemon_image_1 = convertView.findViewById(R.id.pokemon_list_pokemon1);
+        ImageView pokemon_image_2 = convertView.findViewById(R.id.pokemon_list_pokemon2);
+        ImageView pokemon_image_3 = convertView.findViewById(R.id.pokemon_list_pokemon3);
+        ImageView pokemon_image_4 = convertView.findViewById(R.id.pokemon_list_pokemon4);
+        ImageView pokemon_image_5 = convertView.findViewById(R.id.pokemon_list_pokemon5);
+        TextView pokemon_name_1 = convertView.findViewById(R.id.pokemon_list_pokemon1_title);
+        TextView pokemon_name_2 = convertView.findViewById(R.id.pokemon_list_pokemon2_title);
+        TextView pokemon_name_3 = convertView.findViewById(R.id.pokemon_list_pokemon3_title);
+        TextView pokemon_name_4 = convertView.findViewById(R.id.pokemon_list_pokemon4_title);
+        TextView pokemon_name_5 = convertView.findViewById(R.id.pokemon_list_pokemon5_title);
         int[] pokemon_ids = new int[5];
         int[] pokemon_found = new int[5];
         //Set Pokemon 1

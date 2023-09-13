@@ -32,9 +32,9 @@ public class user_list_adapter extends ArrayAdapter<user_list> {
         }
         //get GUI Items
         LinearLayout user_info = convertView.findViewById(R.id.pokemon_info);
-        TextView user_name = convertView.findViewById(R.id.user_name);
-        TextView user_pokemon_count = convertView.findViewById(R.id.pokemon_count);
-        ProgressBar user_progress = convertView.findViewById(R.id.user_progress);
+        TextView user_name = convertView.findViewById(R.id.user_list_user_name);
+        TextView user_pokemon_count = convertView.findViewById(R.id.user_list_pokemon_count);
+        ProgressBar user_progress = convertView.findViewById(R.id.user_list_user_progress);
         Intent activity_pokedex = new Intent(getContext(), PokedexActivity.class);
         user_name.setText(user_list.get(position).getUser_name());
         user_pokemon_count.setText(String.valueOf(user_list.get(position).getUser_pokemon()));

@@ -62,7 +62,7 @@
             android:progress="50" />
 
         <ListView
-            android:id="@+id/activity_pokemon_list"
+            android:id="@+id/pokedex_activity_pokemon_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/pokedex_pokemon_caught" />

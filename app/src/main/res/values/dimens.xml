@@ -4,4 +4,5 @@
     <dimen name="pokemon_icon_height">75dp</dimen>
     <dimen name="user_top_margin"> 25dp</dimen>
     <dimen name="user_bottom_margin">25dp</dimen>
+    <dimen name="catch_pokemon_margin">10dp</dimen>
 </resources>

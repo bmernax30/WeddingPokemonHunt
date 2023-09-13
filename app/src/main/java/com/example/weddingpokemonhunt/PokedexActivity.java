@@ -23,7 +23,7 @@ public class PokedexActivity extends AppCompatActivity {
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
 
         TextView username_text = findViewById(R.id.pokedex_user_name);
-        ListView pokemon_list_view = findViewById(R.id.activity_pokemon_list);
+        ListView pokemon_list_view = findViewById(R.id.pokedex_activity_pokemon_list);
         TextView pokemon_count_text = findViewById(R.id.pokedex_pokemon_caught);
         ProgressBar pokemon_count_progess = findViewById(R.id.pokedex_pokemon_progress);
 

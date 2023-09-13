@@ -25,7 +25,7 @@ public class ResumeUserActivity extends AppCompatActivity {
             Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(activityMain);
         }
-        ListView user_list_view = findViewById(R.id.user_list);
+        ListView user_list_view = findViewById(R.id.resume_user_list);
         String user_name;
         int user_pokemon;
 

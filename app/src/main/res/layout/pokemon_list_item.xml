@@ -15,7 +15,7 @@
             android:layout_height="match_parent" >
 
             <ImageView
-                android:id="@+id/pokemon1"
+                android:id="@+id/pokemon_list_pokemon1"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
                 android:layout_weight="1"
@@ -23,7 +23,7 @@
                 app:srcCompat="@drawable/p001_no_pokemon" />
 
             <ImageView
-                android:id="@+id/pokemon2"
+                android:id="@+id/pokemon_list_pokemon2"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
                 android:layout_weight="1"
@@ -31,7 +31,7 @@
                 app:srcCompat="@drawable/p002_no_pokemon" />
 
             <ImageView
-                android:id="@+id/pokemon3"
+                android:id="@+id/pokemon_list_pokemon3"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
                 android:layout_weight="1"
@@ -39,7 +39,7 @@
                 app:srcCompat="@drawable/p003_no_pokemon" />
 
             <ImageView
-                android:id="@+id/pokemon4"
+                android:id="@+id/pokemon_list_pokemon4"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
                 android:layout_weight="1"
@@ -47,7 +47,7 @@
                 app:srcCompat="@drawable/p004_no_pokemon" />
 
             <ImageView
-                android:id="@+id/pokemon5"
+                android:id="@+id/pokemon_list_pokemon5"
                 android:layout_width="@dimen/pokemon_icon_width"
                 android:layout_height="@dimen/pokemon_icon_height"
                 android:layout_weight="1"
@@ -60,7 +60,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/pokemon1_title"
+                android:id="@+id/pokemon_list_pokemon1_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -71,7 +71,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pokemon2_title"
+                android:id="@+id/pokemon_list_pokemon2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -82,7 +82,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pokemon3_title"
+                android:id="@+id/pokemon_list_pokemon3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -93,7 +93,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pokemon4_title"
+                android:id="@+id/pokemon_list_pokemon4_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -104,7 +104,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pokemon5_title"
+                android:id="@+id/pokemon_list_pokemon5_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

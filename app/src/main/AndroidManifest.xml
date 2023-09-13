@@ -40,6 +40,10 @@
             android:name=".PokedexActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".CatchPokemon"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

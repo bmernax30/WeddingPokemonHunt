@@ -10,10 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/pokemon_list_boarder"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent">
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/user_list_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -30,7 +32,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/pokemon_count"
+                android:id="@+id/user_list_pokemon_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/user_top_margin"
@@ -43,7 +45,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/total_count"
+                android:id="@+id/user_list_total_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/user_top_margin"
@@ -55,7 +57,7 @@
                 android:textStyle="bold" />
 
             <ProgressBar
-                android:id="@+id/user_progress"
+                android:id="@+id/user_list_user_progress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
