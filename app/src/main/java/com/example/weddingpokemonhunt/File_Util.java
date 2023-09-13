@@ -13,14 +13,102 @@ public class File_Util {
     private File_Util() {
     }
 
+    public static void setFoundPokemon(java.io.File file, int player_number, int pokemon_number, int found)
+    {
+        String current_string = getPokemonString(file,player_number);
+        String new_string = getPokemonString(file,player_number);
+        String file_string = ReadFile(file);
+        new_string = "#"+player_number+"#"+getUser(file,player_number) + "#" + current_string.substring(0,(pokemon_number-1)) + found + current_string.substring((pokemon_number-1)+1);
+        current_string = "#"+player_number+"#"+getUser(file,player_number) + "#" + current_string;
+        WriteFile(file,file_string.replace(current_string,new_string),false);
+    }
+    public static int getPokemonCount(java.io.File file, int player_number)
+    {
+        String pokemon_string = getPokemonString(file,player_number);
+        byte[] pokemon_bytes = pokemon_string.getBytes();
+        int pokemon_count = 0;
+
+        for(int i = 0; i < pokemon_string.length(); i++)
+        {
+            if(pokemon_bytes[i] == 49)
+            {
+                pokemon_count++;
+            }
+        }
+
+        return pokemon_count;
+    }
+    public static String getPokemonString(java.io.File file, int player_number)
+    {
+        String user_data = ReadFile(file);
+        String pokemon_string;
+        int start_pound_sign = (player_number-1)*3 + 5;
+        int end_pound_sign = start_pound_sign + 1;
+        int start_index = 1; //Will return mulverna if no name exists
+        int end_index = 8;
+        int pound_sign_count = 0;
+
+        byte[] user_data_bytes = user_data.getBytes();
+        for(int i=0; i<user_data_bytes.length; i++)
+        {
+            //Pound Sign
+            if(user_data_bytes[i] == 35)
+            {
+                pound_sign_count++;
+                if(pound_sign_count == start_pound_sign)
+                {
+                    start_index = i+1;
+                }
+                if(pound_sign_count == end_pound_sign)
+                {
+                    end_index = i;
+                    break;
+                }
+            }
+        }
+        pokemon_string = user_data.substring(start_index,end_index);
+        return pokemon_string;
+    }
+    public static String getUser(java.io.File file, int player_number)
+    {
+        String user_data = ReadFile(file);
+        String user_name;
+        int start_pound_sign = (player_number-1)*3 + 4;
+        int end_pound_sign = start_pound_sign + 1;
+        int start_index = 1; //Will return mulverna if no name exists
+        int end_index = 8;
+        int pound_sign_count = 0;
+
+        byte[] user_data_bytes = user_data.getBytes();
+        for(int i=0; i<user_data_bytes.length; i++)
+        {
+            //Pound Sign
+            if(user_data_bytes[i] == 35)
+            {
+                pound_sign_count++;
+                if(pound_sign_count == start_pound_sign)
+                {
+                    start_index = i+1;
+                }
+                if(pound_sign_count == end_pound_sign)
+                {
+                    end_index = i;
+                    break;
+                }
+            }
+        }
+        user_name = user_data.substring(start_index,end_index);
+        return user_name;
+    }
     public static void addUser(java.io.File file, String user_name)
     {
         int user_number = getTotalPlayers(file) + 1;
-        StringBuilder text = new StringBuilder("#" + user_number + "#" + user_name + "#");
+        StringBuilder text = new StringBuilder(user_number + "#" + user_name + "#");
         for(int i=0; i < NUMBER_OF_POKEMON; i++)
         {
             text.append("0");
         }
+        text.append("#");
         WriteFile(file, text.toString(), true);
         updatePlayerTotal(file);
     }
@@ -64,11 +152,6 @@ public class File_Util {
         text = text.replace(old_players_string,num_players_string);
         WriteFile(file,text,false);
     }
-    public static void initFile(java.io.File file)
-    {
-        String text = "#MULVERNA POKEMON GAME#T000#";
-        WriteFile(file,text.toString(), false);
-    }
     public static int getTotalPlayers(java.io.File file)
     {
         //23,24,25,26
@@ -92,6 +175,12 @@ public class File_Util {
 
         return value;
     }
+
+    public static void initFile(java.io.File file)
+    {
+        String text = "#MULVERNA POKEMON GAME#T000#";
+        WriteFile(file,text.toString(), false);
+    }
     public static String insertString(String originalString, String stringToBeInserted, int index)
     {
 
@@ -103,7 +192,6 @@ public class File_Util {
         // return the modified String
         return originalString;
     }
-
     public static void WriteFile(java.io.File file, String text, boolean append)
     {
         //Initialize Stream
@@ -140,7 +228,6 @@ public class File_Util {
             e.printStackTrace();
         }
     }
-
     public static String ReadFile(java.io.File file)
     {
         //Initialize Variables and Stream
@@ -187,7 +274,6 @@ public class File_Util {
         String contents = new String(bytes);
         return contents;
     }
-
     public static void ClearFile(java.io.File file)
     {
         WriteFile(file,"",false);

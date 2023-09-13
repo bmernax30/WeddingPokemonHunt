@@ -6,24 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ResumeUserActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/pokemon_dark_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@color/pokemon_blue"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/resume_user_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="false"
+            android:layout_centerVertical="false"
+            android:background="@color/pokemon_dark_blue"
+            android:gravity="center"
             android:text="@string/resume_user_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/pokemon_yellow"
             android:textStyle="bold" />
-    </RelativeLayout>
+
+        <ListView
+            android:id="@+id/user_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
