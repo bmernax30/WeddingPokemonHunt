@@ -57,11 +57,6 @@ public class NewUserActivity extends AppCompatActivity {
             else
             {
                 File_Util.addUser(pokemon_file,new_user);
-                File_Util.setFoundPokemon(pokemon_file,File_Util.getTotalPlayers(pokemon_file),3,1);
-                File_Util.setFoundPokemon(pokemon_file,File_Util.getTotalPlayers(pokemon_file),4,1);
-                File_Util.setFoundPokemon(pokemon_file,File_Util.getTotalPlayers(pokemon_file),12,1);
-                File_Util.setFoundPokemon(pokemon_file,File_Util.getTotalPlayers(pokemon_file),13,1);
-                File_Util.setFoundPokemon(pokemon_file,File_Util.getTotalPlayers(pokemon_file),9,1);
                 Intent activityInstructions = new Intent(getApplicationContext(), InstructionsActivity.class);
                 startActivity(activityInstructions);
             }

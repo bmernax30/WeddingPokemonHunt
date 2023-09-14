@@ -5,4 +5,6 @@
     <dimen name="user_top_margin"> 25dp</dimen>
     <dimen name="user_bottom_margin">25dp</dimen>
     <dimen name="catch_pokemon_margin">10dp</dimen>
+    <dimen name="catch_pokemon_button_width">400dp</dimen>
+    <dimen name="catch_pokemon_button_height">400dp</dimen>
 </resources>

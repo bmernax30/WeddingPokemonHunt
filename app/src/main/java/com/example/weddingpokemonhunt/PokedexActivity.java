@@ -1,6 +1,9 @@
 package com.example.weddingpokemonhunt;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,6 +29,7 @@ public class PokedexActivity extends AppCompatActivity {
         ListView pokemon_list_view = findViewById(R.id.pokedex_activity_pokemon_list);
         TextView pokemon_count_text = findViewById(R.id.pokedex_pokemon_caught);
         ProgressBar pokemon_count_progess = findViewById(R.id.pokedex_pokemon_progress);
+        ImageButton catch_pokemon_button = findViewById(R.id.pokedex_catch_pokemon_button);
 
         int pokemon_count;
         int[] tmp_pokemon = new int[5];
@@ -105,6 +109,12 @@ public class PokedexActivity extends AppCompatActivity {
         pokemon_adapter = new pokemon_list_adapter(getApplicationContext(),R.layout.pokemon_list_item,pokemon);
         pokemon_list_view.setAdapter(pokemon_adapter);
         pokemon_adapter.notifyDataSetChanged();
+
+        catch_pokemon_button.setOnClickListener(view -> {
+            Intent activity_catch_pokemon = new Intent(getApplicationContext(), CatchPokemon.class);
+            activity_catch_pokemon.putExtra("key_user_id",user_id);
+            startActivity(activity_catch_pokemon);
+        });
     }
 
 }

@@ -14,29 +14,336 @@ import java.io.IOException;
 
 public class CatchPokemon extends AppCompatActivity{
     int input_count = 0;
-    String button_array[] = {"A","B","C","D","E","F","G","H","I"};
+    String input_code = "";
+    String[] pokemon_codes = {
+            "GXUWC",
+            "SWFXU",
+            "XGAFS",
+            "WGLFS",
+            "XSWCF",
+            "CXLWA",
+            "UWCSX",
+            "GLXSC",
+            "GFWSA",
+            "GSXLC",
+            "LXFSC",
+            "GASWC",
+            "XGLUS",
+            "GCAUW",
+            "ASFLX",
+            "LUCFW",
+            "FSWXC",
+            "AUCSX",
+            "GALCS",
+            "UCLGX",
+            "WSLUC",
+            "GFAXU",
+            "SFALC",
+            "AFCUL",
+            "UGLWA",
+            "CXSWU",
+            "CFSXA",
+            "CFGWX",
+            "CXWFU",
+            "AUSWC",
+            "SLWFC",
+            "CFXLA",
+            "CUAWL",
+            "XUCLF",
+            "CFLGS",
+            "ALGSC",
+            "CFGWU",
+            "AWUFL",
+            "CSAXL",
+            "SACUG",
+            "AXWGU",
+            "CFSXU",
+            "UCFWX",
+            "GLCSW",
+            "SLGUF",
+            "AFWLU",
+            "XALFG",
+            "WCAGL",
+            "LFAGC",
+            "CFUGL",
+            "SCLWU",
+            "FLGUW",
+            "GWLFA",
+            "UWASG",
+            "FUCLW",
+            "GXWUF",
+            "SAULG",
+            "SUCGA",
+            "AGCLU",
+            "FSWAG",
+            "GUALF",
+            "LFUCA",
+            "FLXWU",
+            "UXFAW",
+            "GWULS",
+            "XSAWC",
+            "GWAUC",
+            "WSFAL",
+            "ACWFS",
+            "UASXC",
+            "UFCLX",
+            "FGAWS",
+            "LACSU",
+            "AXFWU",
+            "UAWXL",
+            "FGCSL",
+            "CUGSW",
+            "GLUXA",
+            "FGULX",
+            "AWSCG",
+            "ACSWG",
+            "GAWUF",
+            "UXLAC",
+            "FXCSU",
+            "CXAUF",
+            "ASGFL",
+            "CLSXW",
+            "SUCLG",
+            "GULAC",
+            "FSULC",
+            "UCGSX",
+            "SWGFC",
+            "GFCWU",
+            "XUWCG",
+            "XUFSL",
+            "CFSLU",
+            "LCGFU",
+            "SXGAU",
+            "FGLWS",
+            "ULGXC",
+            "ULWGA",
+            "GAFLU",
+            "GCSUW",
+            "LWFCX",
+            "LUFAC",
+            "ACUSL",
+            "LGUCW",
+            "AUWCG",
+            "FWSLA",
+            "SFALG",
+            "WXLCU",
+            "SGLUW",
+            "ALSUG",
+            "WSGLU",
+            "WXLAS",
+            "UXGLA",
+            "FLACS",
+            "WXSUA",
+            "FWCAU",
+            "ACUFS",
+            "FSLXW",
+            "WSGCX",
+            "WLFCU",
+            "CFAWU",
+            "XCWFS",
+            "LCSXF",
+            "FLCAX",
+            "AGWXS",
+            "SGCWU",
+            "LGASX",
+            "SCUGA",
+            "LASXG",
+            "LSGUX",
+            "CWLSX",
+            "UCFAX",
+            "LACGS",
+            "CFGAL",
+            "CLXWS",
+            "CALGF",
+            "ASXCF",
+            "CXWLA",
+            "WXAFS",
+            "FXSLC",
+            "ASFUC",
+            "CSWGX",
+            "XLAGF",
+            "ASCUX",
+            "SLXGA",
+            "CWASG",
+            "ULCGW",
+            "CFGLW"
+            //"Bulbasaur",
+            //"Ivysaur",
+            //"Venusaur",
+            //"Charmander",
+            //"Charmeleon",
+            //"Charizard",
+            //"Squirtle",
+            //"Wartortle",
+            //"Blastoise",
+            //"Caterpie",
+            //"Metapod",
+            //"Butterfree",
+            //"Weedle",
+            //"Kakuna",
+            //"Beedrill",
+            //"Pidgey",
+            //"Pidgeotto",
+            //"Pidgeot",
+            //"Rattata",
+            //"Raticate",
+            //"Spearow",
+            //"Fearow",
+            //"Ekans",
+            //"Arbok",
+            //"Pikachu",
+            //"Raichu",
+            //"Sandshrew",
+            //"Sandslash",
+            //"Nidoran",
+            //"Nidorina",
+            //"Nidoqueen",
+            //"Nidoran",
+            //"Nidorino",
+            //"Nidoking",
+            //"Clefairy",
+            //"Clefable",
+            //"Vulpix",
+            //"Ninetales",
+            //"Jigglypuff",
+            //"Wigglytuff",
+            //"Zubat",
+            //"Golbat",
+            //"Oddish",
+            //"Gloom",
+            //"Vileplume",
+            //"Paras",
+            //"Parasect",
+            //"Venonat",
+            //"Venomoth",
+            //"Diglett",
+            //"Dugtrio",
+            //"Meowth",
+            //"Persian",
+            //"Psyduck",
+            //"Golduck",
+            //"Mankey",
+            //"Primeape",
+            //"Growlithe",
+            //"Arcanine",
+            //"Poliwag",
+            //"Poliwhirl",
+            //"Poliwrath",
+            //"Abra",
+            //"Kadabra",
+            //"Alakazam",
+            //"Machop",
+            //"Machoke",
+            //"Machamp",
+            //"Bellsprout",
+            //"Weepinbell",
+            //"Victreebel",
+            //"Tentacool",
+            //"Tentacruel",
+            //"Geodude",
+            //"Graveler",
+            //"Golem",
+            //"Ponyta",
+            //"Rapidash",
+            //"Slowpoke",
+            //"Slowbro",
+            //"Magnemite",
+            //"Magneton",
+            //"Farfetchd",
+            //"Doduo",
+            //"Dodrio",
+            //"Seel",
+            //"Dewgong",
+            //"Grimer",
+            //"Muk",
+            //"Shellder",
+            //"Cloyster",
+            //"Gastly",
+            //"Haunter",
+            //"Gengar",
+            //"Onix",
+            //"Drowzee",
+            //"Hypno",
+            //"Krabby",
+            //"Kingler",
+            //"Voltorb",
+            //"Electrode",
+            //"Exeggcute",
+            //"Exeggutor",
+            //"Cubone",
+            //"Marowak",
+            //"Hitmonlee",
+            //"Hitmonchan",
+            //"Lickitung",
+            //"Koffing",
+            //"Weezing",
+            //"Rhyhorn",
+            //"Rhydon",
+            //"Chansey",
+            //"Tangela",
+            //"Kangaskhan",
+            //"Horsea",
+            //"Seadra",
+            //"Goldeen",
+            //"Seaking",
+            //"Staryu",
+            //"Starmie",
+            //"Mr.Mime",
+            //"Scyther",
+            //"Jynx",
+            //"Electabuzz",
+            //"Magmar",
+            //"Pinsir",
+            //"Tauros",
+            //"Magikarp",
+            //"Gyarados",
+            //"Lapras",
+            //"Ditto",
+            //"Eevee",
+            //"Vaporeon",
+            //"Jolteon",
+            //"Flareon",
+            //"Porygon",
+            //"Omanyte",
+            //"Omastar",
+            //"Kabuto",
+            //"Kabutops",
+            //"Aerodactyl",
+            //"Snorlax",
+            //"Articuno",
+            //"Zapdos",
+            //"Moltres",
+            //"Dratini",
+            //"Dragonair",
+            //"Dragonite",
+            //"Mewtwo",
+            //"Mew"
+    };
+    String button_array[] = {"A","F","S","X","U","C","W","L","G"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_pokemon);
 
         //Holds which letters you want as buttons
-
-        String input_code[] = {"A","A","A","A","A"};
-
+        input_code = "";
         String pokemon_file_name = File_Util.GetFileName(1);
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
+        //Get Saved Vales
+        Bundle extras = getIntent().getExtras();
+        int player_number = extras.getInt("key_user_id");
 
-        ImageView button1 = findViewById(R.id.catch_pokemon_btn1);
-        ImageView button2 = findViewById(R.id.catch_pokemon_btn2);
-        ImageView button3 = findViewById(R.id.catch_pokemon_btn3);
-        ImageView button4 = findViewById(R.id.catch_pokemon_btn4);
-        ImageView button5 = findViewById(R.id.catch_pokemon_btn5);
-        ImageView button6 = findViewById(R.id.catch_pokemon_btn6);
-        ImageView button7 = findViewById(R.id.catch_pokemon_btn7);
-        ImageView button8 = findViewById(R.id.catch_pokemon_btn8);
-        ImageView button9 = findViewById(R.id.catch_pokemon_btn9);
-
+        ImageButton button1 = findViewById(R.id.catch_pokemon_btn1);
+        ImageButton button2 = findViewById(R.id.catch_pokemon_btn2);
+        ImageButton button3 = findViewById(R.id.catch_pokemon_btn3);
+        ImageButton button4 = findViewById(R.id.catch_pokemon_btn4);
+        ImageButton button5 = findViewById(R.id.catch_pokemon_btn5);
+        ImageButton button6 = findViewById(R.id.catch_pokemon_btn6);
+        ImageButton button7 = findViewById(R.id.catch_pokemon_btn7);
+        ImageButton button8 = findViewById(R.id.catch_pokemon_btn8);
+        ImageButton button9 = findViewById(R.id.catch_pokemon_btn9);
+        ImageButton clear_button = findViewById(R.id.catch_pokemon_clear_button);
+        ImageButton enter_button = findViewById(R.id.catch_pokemon_enter_button);
         TextView input1 = findViewById(R.id.catch_pokemon_input1);
         TextView input2 = findViewById(R.id.catch_pokemon_input2);
         TextView input3 = findViewById(R.id.catch_pokemon_input3);
@@ -44,7 +351,8 @@ public class CatchPokemon extends AppCompatActivity{
         TextView input5 = findViewById(R.id.catch_pokemon_input5);
         input_count = 0;
 
-        for(int i=0; i < 4; i++)
+        //Selecting Button Icons
+        for(int i=0; i < 9; i++)
         {
             switch(button_array[i])
             {
@@ -55,16 +363,28 @@ public class CatchPokemon extends AppCompatActivity{
                             button1.setImageResource(R.drawable.unknown_button_a);
                             break;
                         case 1:
-                            button2.setImageResource((R.drawable.unknown_button_a));
+                            button2.setImageResource(R.drawable.unknown_button_a);
                             break;
                         case 2:
-                            button3.setImageResource((R.drawable.unknown_button_a));
+                            button3.setImageResource(R.drawable.unknown_button_a);
                             break;
                         case 3:
-                            button4.setImageResource((R.drawable.unknown_button_a));
+                            button4.setImageResource(R.drawable.unknown_button_a);
                             break;
                         case 4:
-                            button5.setImageResource((R.drawable.unknown_button_a));
+                            button5.setImageResource(R.drawable.unknown_button_a);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_a);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_a);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_a);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_a);
                             break;
                     }
                     break;
@@ -75,16 +395,28 @@ public class CatchPokemon extends AppCompatActivity{
                             button1.setImageResource(R.drawable.unknown_button_b);
                             break;
                         case 1:
-                            button2.setImageResource((R.drawable.unknown_button_b));
+                            button2.setImageResource(R.drawable.unknown_button_b);
                             break;
                         case 2:
-                            button3.setImageResource((R.drawable.unknown_button_b));
+                            button3.setImageResource(R.drawable.unknown_button_b);
                             break;
                         case 3:
-                            button4.setImageResource((R.drawable.unknown_button_b));
+                            button4.setImageResource(R.drawable.unknown_button_b);
                             break;
                         case 4:
-                            button5.setImageResource((R.drawable.unknown_button_b));
+                            button5.setImageResource(R.drawable.unknown_button_b);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_b);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_b);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_b);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_b);
                             break;
                     }
                     break;
@@ -92,19 +424,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setImageResource((R.drawable.unknown_button_c));
+                            button1.setImageResource(R.drawable.unknown_button_c);
                             break;
                         case 1:
-                            button2.setImageResource((R.drawable.unknown_button_c));
+                            button2.setImageResource(R.drawable.unknown_button_c);
                             break;
                         case 2:
-                            button3.setImageResource((R.drawable.unknown_button_c));
+                            button3.setImageResource(R.drawable.unknown_button_c);
                             break;
                         case 3:
-                            button4.setImageResource((R.drawable.unknown_button_c));
+                            button4.setImageResource(R.drawable.unknown_button_c);
                             break;
                         case 4:
-                            button5.setImageResource((R.drawable.unknown_button_c));
+                            button5.setImageResource(R.drawable.unknown_button_c);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_c);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_c);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_c);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_c);
                             break;
                     }
                     break;
@@ -112,19 +456,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setImageResource((R.drawable.unknown_button_d));
+                            button1.setImageResource(R.drawable.unknown_button_d);
                             break;
                         case 1:
-                            button2.setImageResource((R.drawable.unknown_button_d));
+                            button2.setImageResource(R.drawable.unknown_button_d);
                             break;
                         case 2:
-                            button3.setImageResource((R.drawable.unknown_button_d));
+                            button3.setImageResource(R.drawable.unknown_button_d);
                             break;
                         case 3:
-                            button4.setImageResource((R.drawable.unknown_button_d));
+                            button4.setImageResource(R.drawable.unknown_button_d);
                             break;
                         case 4:
-                            button5.setImageResource((R.drawable.unknown_button_d));
+                            button5.setImageResource(R.drawable.unknown_button_d);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_d);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_d);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_d);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_d);
                             break;
                     }
                     break;
@@ -132,19 +488,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_e));
+                            button1.setImageResource(R.drawable.unknown_button_e);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_e));
+                            button2.setImageResource(R.drawable.unknown_button_e);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_e));
+                            button3.setImageResource(R.drawable.unknown_button_e);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_e));
+                            button4.setImageResource(R.drawable.unknown_button_e);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_e));
+                            button5.setImageResource(R.drawable.unknown_button_e);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_e);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_e);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_e);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_e);
                             break;
                     }
                     break;
@@ -152,19 +520,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_f));
+                            button1.setImageResource(R.drawable.unknown_button_f);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_f));
+                            button2.setImageResource(R.drawable.unknown_button_f);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_f));
+                            button3.setImageResource(R.drawable.unknown_button_f);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_f));
+                            button4.setImageResource(R.drawable.unknown_button_f);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_f));
+                            button5.setImageResource(R.drawable.unknown_button_f);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_f);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_f);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_f);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_f);
                             break;
                     }
                     break;
@@ -172,19 +552,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_g));
+                            button1.setImageResource(R.drawable.unknown_button_g);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_g));
+                            button2.setImageResource(R.drawable.unknown_button_g);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_g));
+                            button3.setImageResource(R.drawable.unknown_button_g);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_g));
+                            button4.setImageResource(R.drawable.unknown_button_g);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_g));
+                            button5.setImageResource(R.drawable.unknown_button_g);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_g);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_g);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_g);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_g);
                             break;
                     }
                     break;
@@ -192,19 +584,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_h));
+                            button1.setImageResource(R.drawable.unknown_button_h);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_h));
+                            button2.setImageResource(R.drawable.unknown_button_h);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_h));
+                            button3.setImageResource(R.drawable.unknown_button_h);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_h));
+                            button4.setImageResource(R.drawable.unknown_button_h);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_h));
+                            button5.setImageResource(R.drawable.unknown_button_h);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_h);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_h);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_h);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_h);
                             break;
                     }
                     break;
@@ -212,19 +616,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_i));
+                            button1.setImageResource(R.drawable.unknown_button_i);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_i));
+                            button2.setImageResource(R.drawable.unknown_button_i);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_i));
+                            button3.setImageResource(R.drawable.unknown_button_i);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_i));
+                            button4.setImageResource(R.drawable.unknown_button_i);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_i));
+                            button5.setImageResource(R.drawable.unknown_button_i);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_i);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_i);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_i);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_i);
                             break;
                     }
                     break;
@@ -232,19 +648,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_j));
+                            button1.setImageResource(R.drawable.unknown_button_j);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_j));
+                            button2.setImageResource(R.drawable.unknown_button_j);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_j));
+                            button3.setImageResource(R.drawable.unknown_button_j);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_j));
+                            button4.setImageResource(R.drawable.unknown_button_j);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_j));
+                            button5.setImageResource(R.drawable.unknown_button_j);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_j);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_j);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_j);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_j);
                             break;
                     }
                     break;
@@ -252,19 +680,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_k));
+                            button1.setImageResource(R.drawable.unknown_button_k);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_k));
+                            button2.setImageResource(R.drawable.unknown_button_k);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_k));
+                            button3.setImageResource(R.drawable.unknown_button_k);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_k));
+                            button4.setImageResource(R.drawable.unknown_button_k);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_k));
+                            button5.setImageResource(R.drawable.unknown_button_k);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_k);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_k);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_k);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_k);
                             break;
                     }
                     break;
@@ -272,19 +712,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_l));
+                            button1.setImageResource(R.drawable.unknown_button_l);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_l));
+                            button2.setImageResource(R.drawable.unknown_button_l);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_l));
+                            button3.setImageResource(R.drawable.unknown_button_l);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_l));
+                            button4.setImageResource(R.drawable.unknown_button_l);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_l));
+                            button5.setImageResource(R.drawable.unknown_button_l);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_l);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_l);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_l);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_l);
                             break;
                     }
                     break;
@@ -292,19 +744,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_m));
+                            button1.setImageResource(R.drawable.unknown_button_m);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_m));
+                            button2.setImageResource(R.drawable.unknown_button_m);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_m));
+                            button3.setImageResource(R.drawable.unknown_button_m);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_m));
+                            button4.setImageResource(R.drawable.unknown_button_m);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_m));
+                            button5.setImageResource(R.drawable.unknown_button_m);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_m);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_m);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_m);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_m);
                             break;
                     }
                     break;
@@ -312,19 +776,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_n));
+                            button1.setImageResource(R.drawable.unknown_button_n);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_n));
+                            button2.setImageResource(R.drawable.unknown_button_n);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_n));
+                            button3.setImageResource(R.drawable.unknown_button_n);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_n));
+                            button4.setImageResource(R.drawable.unknown_button_n);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_n));
+                            button5.setImageResource(R.drawable.unknown_button_n);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_n);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_n);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_n);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_n);
                             break;
                     }
                     break;
@@ -332,19 +808,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_o));
+                            button1.setImageResource(R.drawable.unknown_button_o);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_o));
+                            button2.setImageResource(R.drawable.unknown_button_o);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_o));
+                            button3.setImageResource(R.drawable.unknown_button_o);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_o));
+                            button4.setImageResource(R.drawable.unknown_button_o);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_o));
+                            button5.setImageResource(R.drawable.unknown_button_o);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_o);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_o);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_o);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_o);
                             break;
                     }
                     break;
@@ -352,19 +840,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_p));
+                            button1.setImageResource(R.drawable.unknown_button_p);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_p));
+                            button2.setImageResource(R.drawable.unknown_button_p);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_p));
+                            button3.setImageResource(R.drawable.unknown_button_p);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_p));
+                            button4.setImageResource(R.drawable.unknown_button_p);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_p));
+                            button5.setImageResource(R.drawable.unknown_button_p);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_p);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_p);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_p);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_p);
                             break;
                     }
                     break;
@@ -372,19 +872,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_q));
+                            button1.setImageResource(R.drawable.unknown_button_q);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_q));
+                            button2.setImageResource(R.drawable.unknown_button_q);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_q));
+                            button3.setImageResource(R.drawable.unknown_button_q);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_q));
+                            button4.setImageResource(R.drawable.unknown_button_q);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_q));
+                            button5.setImageResource(R.drawable.unknown_button_q);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_q);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_q);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_q);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_q);
                             break;
                     }
                     break;
@@ -392,19 +904,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_r));
+                            button1.setImageResource(R.drawable.unknown_button_r);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_r));
+                            button2.setImageResource(R.drawable.unknown_button_r);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_r));
+                            button3.setImageResource(R.drawable.unknown_button_r);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_r));
+                            button4.setImageResource(R.drawable.unknown_button_r);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_r));
+                            button5.setImageResource(R.drawable.unknown_button_r);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_r);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_r);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_r);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_r);
                             break;
                     }
                     break;
@@ -412,19 +936,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_s));
+                            button1.setImageResource(R.drawable.unknown_button_s);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_s));
+                            button2.setImageResource(R.drawable.unknown_button_s);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_s));
+                            button3.setImageResource(R.drawable.unknown_button_s);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_s));
+                            button4.setImageResource(R.drawable.unknown_button_s);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_s));
+                            button5.setImageResource(R.drawable.unknown_button_s);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_s);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_s);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_s);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_s);
                             break;
                     }
                     break;
@@ -432,19 +968,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_t));
+                            button1.setImageResource(R.drawable.unknown_button_t);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_t));
+                            button2.setImageResource(R.drawable.unknown_button_t);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_t));
+                            button3.setImageResource(R.drawable.unknown_button_t);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_t));
+                            button4.setImageResource(R.drawable.unknown_button_t);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_t));
+                            button5.setImageResource(R.drawable.unknown_button_t);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_t);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_t);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_t);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_t);
                             break;
                     }
                     break;
@@ -452,19 +1000,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_u));
+                            button1.setImageResource(R.drawable.unknown_button_u);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_u));
+                            button2.setImageResource(R.drawable.unknown_button_u);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_u));
+                            button3.setImageResource(R.drawable.unknown_button_u);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_u));
+                            button4.setImageResource(R.drawable.unknown_button_u);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_u));
+                            button5.setImageResource(R.drawable.unknown_button_u);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_u);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_u);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_u);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_u);
                             break;
                     }
                     break;
@@ -472,19 +1032,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_v));
+                            button1.setImageResource(R.drawable.unknown_button_v);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_v));
+                            button2.setImageResource(R.drawable.unknown_button_v);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_v));
+                            button3.setImageResource(R.drawable.unknown_button_v);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_v));
+                            button4.setImageResource(R.drawable.unknown_button_v);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_v));
+                            button5.setImageResource(R.drawable.unknown_button_v);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_v);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_v);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_v);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_v);
                             break;
                     }
                     break;
@@ -492,19 +1064,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_w));
+                            button1.setImageResource(R.drawable.unknown_button_w);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_w));
+                            button2.setImageResource(R.drawable.unknown_button_w);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_w));
+                            button3.setImageResource(R.drawable.unknown_button_w);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_w));
+                            button4.setImageResource(R.drawable.unknown_button_w);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_w));
+                            button5.setImageResource(R.drawable.unknown_button_w);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_w);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_w);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_w);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_w);
                             break;
                     }
                     break;
@@ -512,19 +1096,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_x));
+                            button1.setImageResource(R.drawable.unknown_button_x);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_x));
+                            button2.setImageResource(R.drawable.unknown_button_x);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_x));
+                            button3.setImageResource(R.drawable.unknown_button_x);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_x));
+                            button4.setImageResource(R.drawable.unknown_button_x);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_x));
+                            button5.setImageResource(R.drawable.unknown_button_x);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_x);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_x);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_x);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_x);
                             break;
                     }
                     break;
@@ -532,19 +1128,31 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_y));
+                            button1.setImageResource(R.drawable.unknown_button_y);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_y));
+                            button2.setImageResource(R.drawable.unknown_button_y);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_y));
+                            button3.setImageResource(R.drawable.unknown_button_y);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_y));
+                            button4.setImageResource(R.drawable.unknown_button_y);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_y));
+                            button5.setImageResource(R.drawable.unknown_button_y);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_y);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_y);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_y);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_y);
                             break;
                     }
                     break;
@@ -552,27 +1160,40 @@ public class CatchPokemon extends AppCompatActivity{
                     switch(i)
                     {
                         case 0:
-                            button1.setBackgroundResource((R.drawable.unknown_button_z));
+                            button1.setImageResource(R.drawable.unknown_button_z);
                             break;
                         case 1:
-                            button2.setBackgroundResource((R.drawable.unknown_button_z));
+                            button2.setImageResource(R.drawable.unknown_button_z);
                             break;
                         case 2:
-                            button3.setBackgroundResource((R.drawable.unknown_button_z));
+                            button3.setImageResource(R.drawable.unknown_button_z);
                             break;
                         case 3:
-                            button4.setBackgroundResource((R.drawable.unknown_button_z));
+                            button4.setImageResource(R.drawable.unknown_button_z);
                             break;
                         case 4:
-                            button5.setBackgroundResource((R.drawable.unknown_button_z));
+                            button5.setImageResource(R.drawable.unknown_button_z);
+                            break;
+                        case 5:
+                            button6.setImageResource(R.drawable.unknown_button_z);
+                            break;
+                        case 6:
+                            button7.setImageResource(R.drawable.unknown_button_z);
+                            break;
+                        case 7:
+                            button8.setImageResource(R.drawable.unknown_button_z);
+                            break;
+                        case 8:
+                            button9.setImageResource(R.drawable.unknown_button_z);
                             break;
                     }
                     break;
 
             }
         }
+
         button1.setOnClickListener(view -> {
-            input_code[input_count] = button_array[0];
+            input_code = input_code + button_array[0];
             switch(input_count)
             {
                 default:
@@ -594,13 +1215,9 @@ public class CatchPokemon extends AppCompatActivity{
             }
 
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button2.setOnClickListener(view -> {
-            input_code[input_count] = button_array[1];
+            input_code = input_code + button_array[1];
             switch(input_count)
             {
                 default:
@@ -621,13 +1238,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button3.setOnClickListener(view -> {
-            input_code[input_count] = button_array[2];
+            input_code = input_code + button_array[2];
             switch(input_count)
             {
                 default:
@@ -648,13 +1261,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button4.setOnClickListener(view -> {
-            input_code[input_count] = button_array[3];
+            input_code = input_code + button_array[3];
             switch(input_count)
             {
                 default:
@@ -675,13 +1284,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button5.setOnClickListener(view -> {
-            input_code[input_count] = button_array[4];
+            input_code = input_code + button_array[4];
             switch(input_count)
             {
                 default:
@@ -702,13 +1307,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button6.setOnClickListener(view -> {
-            input_code[input_count] = button_array[5];
+            input_code = input_code + button_array[5];
             switch(input_count)
             {
                 default:
@@ -729,13 +1330,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button7.setOnClickListener(view -> {
-            input_code[input_count] = button_array[6];
+            input_code = input_code + button_array[6];
             switch(input_count)
             {
                 default:
@@ -756,13 +1353,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button8.setOnClickListener(view -> {
-            input_code[input_count] = button_array[7];
+            input_code = input_code + button_array[7];
             switch(input_count)
             {
                 default:
@@ -783,13 +1376,9 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
-            {
-                input_count = 0;
-            }
         });
         button9.setOnClickListener(view -> {
-            input_code[input_count] = button_array[8];
+            input_code = input_code + button_array[8];
             switch(input_count)
             {
                 default:
@@ -810,9 +1399,52 @@ public class CatchPokemon extends AppCompatActivity{
                     break;
             }
             input_count++;
-            if(input_count == 5)
+        });
+        clear_button.setOnClickListener(view -> {
+            input_count = 0;
+            input1.setText("_");
+            input2.setText("_");
+            input3.setText("_");
+            input4.setText("_");
+            input5.setText("_");
+            input_code = "";
+        });
+        enter_button.setOnClickListener(view -> {
+            int pokemon_caught = 0;
+            int pokemon_id = 0;
+            if(input_count != 5)
+            {
+                return;
+            }
+            //Check if its valid pokemon code
+            for(int i=0; i < 151; i++)
+            {
+                if(input_code.equals(pokemon_codes[i]))
+                {
+                    pokemon_caught = 1;
+                    pokemon_id = i;
+                    break;
+                }
+            }
+            if(pokemon_caught == 1) {
+                String test = File_Util.ReadFile(pokemon_file);
+                File_Util.setFoundPokemon(pokemon_file, player_number+1, pokemon_id+1, 1);
+                test = File_Util.ReadFile(pokemon_file);
+                //Some Screen Saying you caught a pokemon
+                //Launch back to pokedex screen
+                Intent activity_pokedex = new Intent(getApplicationContext(), PokedexActivity.class);
+                activity_pokedex.putExtra("key_user_id", player_number);
+                startActivity(activity_pokedex);
+            }
+            else
             {
                 input_count = 0;
+                input1.setText("_");
+                input2.setText("_");
+                input3.setText("_");
+                input4.setText("_");
+                input5.setText("_");
+                input_code = "";
             }
         });
     }

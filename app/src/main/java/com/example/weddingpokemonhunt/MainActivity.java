@@ -54,10 +54,8 @@ public class MainActivity extends AppCompatActivity {
             resume_button.setVisibility(View.VISIBLE);
         }
         new_button.setOnClickListener(view -> {
-                //Intent activityNewUser = new Intent(getApplicationContext(), NewUserActivity.class);
-                //startActivity(activityNewUser);
-                Intent activityCatchPokemon = new Intent(getApplicationContext(), CatchPokemon.class);
-                startActivity(activityCatchPokemon);
+                Intent activityNewUser = new Intent(getApplicationContext(), NewUserActivity.class);
+                startActivity(activityNewUser);
         });
 
         resume_button.setOnClickListener(view -> {
