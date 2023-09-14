@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/pokemon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pokemon_dark_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/pokemon_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pokemon_yellow"
+            android:gravity="center"
+            android:text="@string/pokemon_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/pokemon_dark_blue"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pokemon_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemon_title"
+            android:layout_marginTop="@dimen/pokemon_margin"
+            android:gravity="center"
+            android:text="@string/pokemon_user"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+            android:textColor="@color/pokemon_yellow"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pokemon_info_string"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemon_user"
+            android:gravity="center"
+            android:text="@string/pokemon_string1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/pokemon_yellow" />
+
+        <TextView
+            android:id="@+id/pokemon_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemon_info_string"
+            android:gravity="center"
+            android:text="@string/pokemon_pokemon"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/pokemon_yellow" />
+
+        <ImageView
+            android:id="@+id/pokemon_pokemon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/pokemon_name"
+            app:srcCompat="@drawable/p006_pokemon" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

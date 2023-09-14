@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.File;
@@ -17,6 +20,24 @@ public class NewUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
+
+        LinearLayout main_timer_refresh = findViewById(R.id.new_user_layout);
+        int timer_seconds = 10;
+        //Init Timer
+        CountDownTimer main_timer;
+        main_timer = new CountDownTimer((timer_seconds*1000),300){
+            public void onTick(long millisUntilFinished){
+                //Do Nothing
+            }
+            public void onFinish(){
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
+            }
+        }.start();
+        main_timer_refresh.setOnClickListener(view -> {
+            main_timer.cancel();
+            main_timer.start();
+        });
 
         ImageButton start_adv_button = findViewById(R.id.new_user_start_button);
         EditText user_name = findViewById(R.id.new_user_name_input);
@@ -61,5 +82,12 @@ public class NewUserActivity extends AppCompatActivity {
                 startActivity(activityInstructions);
             }
         });
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(activityMain);
+        super.onBackPressed();
     }
 }

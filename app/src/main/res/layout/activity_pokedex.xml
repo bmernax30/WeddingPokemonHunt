@@ -5,10 +5,15 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/pokedex_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pokemon_blue"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/pokedex_title"
@@ -58,9 +63,11 @@
             android:layout_below="@id/pokedex_user_name"
             android:layout_alignBottom="@id/pokedex_total_pokemon"
             android:layout_toEndOf="@id/pokedex_total_pokemon"
-            android:background="@drawable/pokemon_list_boarder"
             android:max="150"
-            android:progress="50" />
+            android:progress="50"
+            android:progressTint="@color/pokemon_yellow"
+            android:scaleX=".9"
+            android:scaleY="5" />
 
         <ImageButton
             android:id="@+id/pokedex_catch_pokemon_button"
@@ -69,6 +76,8 @@
             android:layout_below="@id/pokedex_pokemon_progress"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/catch_pokemon_margin"
+            android:background="@color/pokemon_blue"
+            android:contentDescription="@string/pokedex_catch_pokemon"
             app:srcCompat="@drawable/enter_pokemon_button" />
 
         <ListView

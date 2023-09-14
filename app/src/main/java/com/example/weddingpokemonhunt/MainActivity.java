@@ -1,13 +1,11 @@
 package com.example.weddingpokemonhunt;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         //File_Util.initFile(pokemon_file);
 
         boolean error_flag;
-        String test;
+
         if(pokemon_file.exists())
         {
             //File Exists, Check if there is a header

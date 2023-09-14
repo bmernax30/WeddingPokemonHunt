@@ -21,12 +21,12 @@
     <string name="new_user_title">NEW USER!</string>
     <string name="new_user_description">Welcome to the wonderful world of Pokemon.</string>
     <string name="new_user_instructions">Type your name and begin your Pokemon journey.</string>
-    <string name="new_user_start_button_content_description">START YOUR ADVENTURE</string>
+    <string name="new_user_start_button_content_description">GOTTA CATCHEM ALL</string>
     <string name="new_user_name_input_hint">Enter Name</string>
     <string name="new_user_input_error">Error: User name already selected.</string>
     <string name="resume_user_title">RESUME USER</string>
 
-    <string name="instructions_title">INSTRUCTIONS!</string>
+    <string name="instructions_title">INSTRUCTIONS</string>
 
     <!-- POKEMON LIST -->
     <string name="unknown_pokemon">"?????"</string>
@@ -41,6 +41,7 @@
     <string name="default_pokemon_score">0</string>
     <string name="total_pokemon_score">/150</string>
     <string name="pokedex_header">POKEDEX</string>
+    <string name="pokedex_catch_pokemon">Catch Pokemon Button</string>
 
     <!--- User -->
     <string name="user_default_score">0</string>
@@ -60,4 +61,16 @@
     <string name="catch_pokemon_button8">Button 8</string>
     <string name="catch_pokemon_button9">Button 9</string>
     <string name="catch_pokemon_input">_</string>
+    <string name="catch_pokemon_enter_button">Enter Button</string>
+    <string name="catch_pokemon_clear_button">Clear Button</string>
+
+    <!--- Instructions -->
+    <string name="instrutions_1">1.) Find Pokeballs and Remember the Code</string>
+
+    <!--- Pokemon -->
+    <string name="pokemon_title">POKEMON</string>
+    <string name="pokemon_user">BARNEY</string>
+    <string name="pokemon_string1">YOU CAUGHT A...</string>
+    <string name="pokemon_pokemon">CHARIZARD</string>
+    <string name="pokemon_caught_description">This is the pokemon that was caught.</string>
 </resources>

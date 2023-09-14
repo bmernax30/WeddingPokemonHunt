@@ -7,6 +7,7 @@
     tools:context=".NewUserActivity">
 
     <LinearLayout
+        android:id="@+id/new_user_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pokemon_dark_blue"
@@ -18,12 +19,13 @@
 
         <TextView
             android:id="@+id/new_user_header"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:background="@color/pokemon_yellow"
+            android:gravity="center"
             android:text="@string/new_user_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            android:textColor="@color/pokemon_yellow"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/pokemon_dark_blue"
             android:textStyle="bold" />
 
         <ImageView
@@ -89,7 +91,7 @@
             android:paddingTop="10dp"
             android:scaleX=".8"
             android:scaleY=".8"
-            app:srcCompat="@drawable/start_adventure_button" />
+            app:srcCompat="@drawable/gotta_catchemall_button" />
 
     </LinearLayout>
 

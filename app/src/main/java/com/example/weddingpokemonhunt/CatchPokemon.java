@@ -2,9 +2,11 @@ package com.example.weddingpokemonhunt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -325,6 +327,23 @@ public class CatchPokemon extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_pokemon);
 
+        RelativeLayout main_timer_refresh = findViewById(R.id.catch_pokemon_layout);
+        int timer_seconds = 10;
+        //Init Timer
+        CountDownTimer main_timer;
+        main_timer = new CountDownTimer((timer_seconds*1000),300){
+            public void onTick(long millisUntilFinished){
+                //Do Nothing
+            }
+            public void onFinish(){
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
+            }
+        }.start();
+        main_timer_refresh.setOnClickListener(view -> {
+            main_timer.cancel();
+            main_timer.start();
+        });
         //Holds which letters you want as buttons
         input_code = "";
         String pokemon_file_name = File_Util.GetFileName(1);
@@ -1432,9 +1451,11 @@ public class CatchPokemon extends AppCompatActivity{
                 test = File_Util.ReadFile(pokemon_file);
                 //Some Screen Saying you caught a pokemon
                 //Launch back to pokedex screen
-                Intent activity_pokedex = new Intent(getApplicationContext(), PokedexActivity.class);
-                activity_pokedex.putExtra("key_user_id", player_number);
-                startActivity(activity_pokedex);
+                Intent activity_pokemon = new Intent(getApplicationContext(), PokemonActivity.class);
+                //username
+                activity_pokemon.putExtra("key_user_name",File_Util.getUser(pokemon_file,player_number+1));
+                activity_pokemon.putExtra("key_pokemon_id",pokemon_id);
+                startActivity(activity_pokemon);
             }
             else
             {
@@ -1447,5 +1468,12 @@ public class CatchPokemon extends AppCompatActivity{
                 input_code = "";
             }
         });
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(activityMain);
+        super.onBackPressed();
     }
 }

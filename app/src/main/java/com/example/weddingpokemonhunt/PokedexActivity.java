@@ -2,10 +2,12 @@ package com.example.weddingpokemonhunt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,25 @@ public class PokedexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokedex);
+
+        RelativeLayout main_timer_refresh = findViewById(R.id.pokedex_layout);
+        int timer_seconds = 10;
+        //Init Timer
+        CountDownTimer main_timer;
+        main_timer = new CountDownTimer((timer_seconds*1000),300){
+            public void onTick(long millisUntilFinished){
+                //Do Nothing
+            }
+            public void onFinish(){
+                this.cancel();
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
+            }
+        }.start();
+        main_timer_refresh.setOnClickListener(view -> {
+            main_timer.cancel();
+            main_timer.start();
+        });
 
         String pokemon_file_name = File_Util.GetFileName(1);
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
@@ -116,5 +137,12 @@ public class PokedexActivity extends AppCompatActivity {
             startActivity(activity_catch_pokemon);
         });
     }
+    @Override
+    public void onBackPressed()
+    {
 
+        Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(activityMain);
+        super.onBackPressed();
+    }
 }

@@ -2,15 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/catch_pokemon_margin"
-    android:layout_marginBottom="@dimen/catch_pokemon_margin">
+    android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/catch_pokemon_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pokemon_blue"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/catch_pokemon_header"
@@ -18,11 +21,11 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="false"
             android:layout_centerVertical="false"
-            android:background="@color/pokemon_dark_blue"
+            android:background="@color/pokemon_yellow"
             android:gravity="center"
             android:text="@string/catch_pokemon_header"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/pokemon_yellow"
+            android:textColor="@color/pokemon_dark_blue"
             android:textStyle="bold" />
 
         <TextView
@@ -112,6 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/catch_pokemon_inputs"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
             android:background="@color/pokemon_dark_blue"
             android:gravity="center">
 
@@ -124,6 +129,8 @@
                 android:layout_alignParentBottom="false"
                 android:layout_marginTop="@dimen/catch_pokemon_margin"
                 android:layout_toRightOf="@id/catch_pokemon_btn8"
+                android:background="@color/pokemon_dark_blue"
+                android:contentDescription="@string/catch_pokemon_clear_button"
                 app:srcCompat="@drawable/clear_button" />
 
             <ImageButton
@@ -135,6 +142,8 @@
                 android:layout_alignParentBottom="false"
                 android:layout_marginTop="@dimen/catch_pokemon_margin"
                 android:layout_toLeftOf="@id/catch_pokemon_btn8"
+                android:background="@color/pokemon_dark_blue"
+                android:contentDescription="@string/catch_pokemon_enter_button"
                 app:srcCompat="@drawable/enter_button" />
 
             <ImageButton
@@ -143,8 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@id/catch_pokemon_btn5"
                 android:layout_alignStart="@id/catch_pokemon_btn4"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
-                android:layout_marginBottom="@dimen/catch_pokemon_margin"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button1"
                 app:srcCompat="@drawable/unknown_button_a" />
 
@@ -153,12 +161,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/catch_pokemon_btn5"
-                android:layout_marginLeft="@dimen/catch_pokemon_margin"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
-                android:layout_marginBottom="@dimen/catch_pokemon_margin"
                 android:layout_toEndOf="@id/catch_pokemon_btn1"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button2"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_f" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn3"
@@ -166,32 +172,29 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@id/catch_pokemon_btn5"
                 android:layout_toEndOf="@id/catch_pokemon_btn2"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button3"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_o" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/catch_pokemon_btn5"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
                 android:layout_marginBottom="@dimen/catch_pokemon_margin"
                 android:layout_toStartOf="@id/catch_pokemon_btn5"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button4"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_i" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginLeft="@dimen/catch_pokemon_margin"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
-                android:layout_marginBottom="@dimen/catch_pokemon_margin"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button5"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_m" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn6"
@@ -199,12 +202,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/catch_pokemon_btn1"
                 android:layout_alignTop="@id/catch_pokemon_btn5"
-                android:layout_marginLeft="@dimen/catch_pokemon_margin"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
                 android:layout_marginBottom="@dimen/catch_pokemon_margin"
                 android:layout_toEndOf="@id/catch_pokemon_btn5"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button6"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_e" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn7"
@@ -212,10 +214,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/catch_pokemon_btn5"
                 android:layout_alignStart="@id/catch_pokemon_btn4"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button7"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_b" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn8"
@@ -223,23 +224,20 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/catch_pokemon_btn5"
                 android:layout_centerInParent="false"
-                android:layout_marginLeft="@dimen/catch_pokemon_margin"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_marginRight="@dimen/catch_pokemon_margin"
                 android:layout_toEndOf="@id/catch_pokemon_btn7"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button8"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_r" />
 
             <ImageButton
                 android:id="@+id/catch_pokemon_btn9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/catch_pokemon_btn5"
-                android:layout_marginLeft="@dimen/catch_pokemon_margin"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
                 android:layout_toEndOf="@id/catch_pokemon_btn8"
+                android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button8"
-                app:srcCompat="@drawable/unknown_button_a" />
+                app:srcCompat="@drawable/unknown_button_z" />
 
         </RelativeLayout>
 
