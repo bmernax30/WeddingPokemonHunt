@@ -41,7 +41,7 @@ public class NewUserActivity extends AppCompatActivity {
             main_timer.cancel();
             main_timer.start();
         });
-
+        main_timer.cancel();
         ImageButton start_adv_button = findViewById(R.id.new_user_start_button);
         EditText user_name = findViewById(R.id.new_user_name_input);
         TextView user_description = findViewById(R.id.new_user_description);

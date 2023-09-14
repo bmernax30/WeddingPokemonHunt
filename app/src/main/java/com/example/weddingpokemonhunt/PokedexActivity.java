@@ -49,6 +49,7 @@ public class PokedexActivity extends AppCompatActivity {
             main_timer.start();
         });
 
+        main_timer.cancel();
         String pokemon_file_name = File_Util.GetFileName(1);
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
 
@@ -160,7 +161,6 @@ public class PokedexActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();
