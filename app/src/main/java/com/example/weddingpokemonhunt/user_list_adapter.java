@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,7 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.Date;
 public class user_list_adapter extends ArrayAdapter<user_list> {
     private final ArrayList<user_list> user_list;
 
@@ -26,6 +28,7 @@ public class user_list_adapter extends ArrayAdapter<user_list> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        int total_pokemon;
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.user_list_item, parent, false);
@@ -36,9 +39,17 @@ public class user_list_adapter extends ArrayAdapter<user_list> {
         TextView user_pokemon_count = convertView.findViewById(R.id.user_list_pokemon_count);
         ProgressBar user_progress = convertView.findViewById(R.id.user_list_user_progress);
         Intent activity_pokedex = new Intent(getContext(), PokedexActivity.class);
+        String winner_text = "COMPLETE! - 25";
         user_name.setText(user_list.get(position).getUser_name());
-        user_pokemon_count.setText(String.valueOf(user_list.get(position).getUser_pokemon()));
+        total_pokemon = user_list.get(position).getUser_pokemon();
+        user_pokemon_count.setText(String.valueOf(total_pokemon));
         user_progress.setProgress(user_list.get(position).getUser_pokemon());
+
+        if(total_pokemon == 25)
+        {
+            user_pokemon_count.setText(winner_text);
+            user_name.setTextColor(convertView.getResources().getColor(R.color.pokemon_green));
+        }
 
         user_info.setOnClickListener(View-> {
             activity_pokedex.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

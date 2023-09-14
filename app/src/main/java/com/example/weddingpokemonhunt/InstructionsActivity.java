@@ -13,16 +13,15 @@ import java.util.TimerTask;
 
 public class InstructionsActivity extends AppCompatActivity {
 
+    CountDownTimer main_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
 
         RelativeLayout timer_refresh = findViewById(R.id.instructions_layout);
-        int timer_seconds = 50;
         //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer(20000,300){
+        main_timer = new CountDownTimer(15000,1000){
             public void onTick(long millisUntilFinished){
                 //Do Nothing
             }
@@ -40,6 +39,7 @@ public class InstructionsActivity extends AppCompatActivity {
     }
     @Override public void onBackPressed()
     {
+        main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();

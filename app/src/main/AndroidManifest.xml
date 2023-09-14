@@ -44,6 +44,10 @@
             android:name=".CatchPokemon"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".PokemonActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

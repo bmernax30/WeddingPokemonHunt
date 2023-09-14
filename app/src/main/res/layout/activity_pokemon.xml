@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/pokemon_name"
-            app:srcCompat="@drawable/p006_pokemon" />
+            app:srcCompat="@drawable/p025_pokemon_hq" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

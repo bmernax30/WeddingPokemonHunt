@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <integer-array name="wedding_pokemon_images_hq">
+        <item>@drawable/p001_pokemon_hq</item>
+        <item>@drawable/p004_pokemon_hq</item>
+        <item>@drawable/p007_pokemon_hq</item>
+        <item>@drawable/p012_pokemon_hq</item>
+        <item>@drawable/p025_pokemon_hq</item>
+        <item>@drawable/p034_pokemon_hq</item>
+        <item>@drawable/p037_pokemon_hq</item>
+        <item>@drawable/p038_pokemon_hq</item>
+        <item>@drawable/p039_pokemon_hq</item>
+        <item>@drawable/p054_pokemon_hq</item>
+        <item>@drawable/p055_pokemon_hq</item>
+        <item>@drawable/p059_pokemon_hq</item>
+        <item>@drawable/p065_pokemon_hq</item>
+        <item>@drawable/p077_pokemon_hq</item>
+        <item>@drawable/p093_pokemon_hq</item>
+        <item>@drawable/p094_pokemon_hq</item>
+        <item>@drawable/p095_pokemon_hq</item>
+        <item>@drawable/p107_pokemon_hq</item>
+        <item>@drawable/p108_pokemon_hq</item>
+        <item>@drawable/p123_pokemon_hq</item>
+        <item>@drawable/p133_pokemon_hq</item>
+        <item>@drawable/p144_pokemon_hq</item>
+        <item>@drawable/p145_pokemon_hq</item>
+        <item>@drawable/p146_pokemon_hq</item>
+        <item>@drawable/p149_pokemon_hq</item>
+    </integer-array>
+    <integer-array name="wedding_pokemon_images">
+        <item>@drawable/p001_pokemon</item>
+        <item>@drawable/p004_pokemon</item>
+        <item>@drawable/p007_pokemon</item>
+        <item>@drawable/p012_pokemon</item>
+        <item>@drawable/p025_pokemon</item>
+        <item>@drawable/p034_pokemon</item>
+        <item>@drawable/p037_pokemon</item>
+        <item>@drawable/p038_pokemon</item>
+        <item>@drawable/p039_pokemon</item>
+        <item>@drawable/p054_pokemon</item>
+        <item>@drawable/p055_pokemon</item>
+        <item>@drawable/p059_pokemon</item>
+        <item>@drawable/p065_pokemon</item>
+        <item>@drawable/p077_pokemon</item>
+        <item>@drawable/p093_pokemon</item>
+        <item>@drawable/p094_pokemon</item>
+        <item>@drawable/p095_pokemon</item>
+        <item>@drawable/p107_pokemon</item>
+        <item>@drawable/p108_pokemon</item>
+        <item>@drawable/p123_pokemon</item>
+        <item>@drawable/p133_pokemon</item>
+        <item>@drawable/p144_pokemon</item>
+        <item>@drawable/p145_pokemon</item>
+        <item>@drawable/p146_pokemon</item>
+        <item>@drawable/p149_pokemon</item>
+    </integer-array>
     <integer-array name="pokemon_images">
         <item>@drawable/p001_pokemon</item>
         <item>@drawable/p002_pokemon</item>

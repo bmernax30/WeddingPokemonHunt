@@ -40,13 +40,16 @@
     <string name="default_user_name">USERNAME</string>
     <string name="default_pokemon_score">0</string>
     <string name="total_pokemon_score">/150</string>
+    <string name="total_pokemon_wedding_score">/25</string>
     <string name="pokedex_header">POKEDEX</string>
     <string name="pokedex_catch_pokemon">Catch Pokemon Button</string>
 
     <!--- User -->
     <string name="user_default_score">0</string>
     <string name="user_default_total">/150</string>
+    <string name="user_default_wedding_total">/25</string>
     <string name="user_default_name">POKEMON</string>
+    <string name="user_complete_text">WINNNER! - 25</string>
 
     <!--- Catch Pokemon -->
     <string name="catch_pokemon_header">CATCH POKEMON</string>
@@ -63,6 +66,7 @@
     <string name="catch_pokemon_input">_</string>
     <string name="catch_pokemon_enter_button">Enter Button</string>
     <string name="catch_pokemon_clear_button">Clear Button</string>
+    <string name="catch_pokemon_wrong_answer">Wrong Code- 2 more attempts!</string>
 
     <!--- Instructions -->
     <string name="instrutions_1">1.) Find Pokeballs and Remember the Code</string>

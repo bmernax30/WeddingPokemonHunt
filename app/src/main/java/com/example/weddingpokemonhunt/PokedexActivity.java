@@ -3,6 +3,7 @@ package com.example.weddingpokemonhunt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -18,17 +19,22 @@ import java.util.ArrayList;
 public class PokedexActivity extends AppCompatActivity {
     private pokemon_list_adapter pokemon_adapter;
     private ArrayList<pokemon_list> pokemon;
-    int LINES_OF_POKEMON = 30;
+    int LINES_OF_POKEMON = 5;
+    //int LINES_OF_POKEMON = 30;
+    int wedding_pokemon[] = {
+        1,4,7,12,25,34,37,38,39,54,55,59,65,77,93,94,95,107,108,123,133,144,145,146,149
+    };
+    CountDownTimer main_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokedex);
 
         RelativeLayout main_timer_refresh = findViewById(R.id.pokedex_layout);
-        int timer_seconds = 10;
+
         //Init Timer
         CountDownTimer main_timer;
-        main_timer = new CountDownTimer((timer_seconds*1000),300){
+        main_timer = new CountDownTimer(10000,1000){
             public void onTick(long millisUntilFinished){
                 //Do Nothing
             }
@@ -68,11 +74,11 @@ public class PokedexActivity extends AppCompatActivity {
         pokemon_count = File_Util.getPokemonCount(pokemon_file,user_id+1);
         pokemon_count_text.setText(String.valueOf(pokemon_count));
         pokemon_count_progess.setProgress(pokemon_count);
-        tmp_pokemon[0] = 0;
-        tmp_pokemon[1] = 1;
-        tmp_pokemon[2] = 2;
-        tmp_pokemon[3] = 3;
-        tmp_pokemon[4] = 4;
+        int tmp_pokemon0 = 0;
+        int tmp_pokemon1 = 1;
+        int tmp_pokemon2 = 2;
+        int tmp_pokemon3 = 3;
+        int tmp_pokemon4 = 4;
         user_pokemon = File_Util.getPokemonString(pokemon_file,user_id+1);
         user_pokemon_bytes = user_pokemon.getBytes();
         //Add to Array List
@@ -119,28 +125,42 @@ public class PokedexActivity extends AppCompatActivity {
             {
                 tmp_found[4] = 0;
             }
+            tmp_pokemon[0] = wedding_pokemon[tmp_pokemon0] - 1;
+            tmp_pokemon[1] = wedding_pokemon[tmp_pokemon1] - 1;
+            tmp_pokemon[2] = wedding_pokemon[tmp_pokemon2] - 1;
+            tmp_pokemon[3] = wedding_pokemon[tmp_pokemon3] - 1;
+            tmp_pokemon[4] = wedding_pokemon[tmp_pokemon4] - 1;
             pokemon.add(new pokemon_list(tmp_pokemon, tmp_found));
-            tmp_pokemon[0] = tmp_pokemon[0] + 5;
-            tmp_pokemon[1] = tmp_pokemon[1] + 5;
-            tmp_pokemon[2] = tmp_pokemon[2] + 5;
-            tmp_pokemon[3] = tmp_pokemon[3] + 5;
-            tmp_pokemon[4] = tmp_pokemon[4] + 5;
+            tmp_pokemon0 = tmp_pokemon0 + 5;
+            tmp_pokemon1 = tmp_pokemon1 + 5;
+            tmp_pokemon2 = tmp_pokemon2 + 5;
+            tmp_pokemon3 = tmp_pokemon3 + 5;
+            tmp_pokemon4 = tmp_pokemon4 + 5;
         }
         //Show the list
         pokemon_adapter = new pokemon_list_adapter(getApplicationContext(),R.layout.pokemon_list_item,pokemon);
         pokemon_list_view.setAdapter(pokemon_adapter);
         pokemon_adapter.notifyDataSetChanged();
 
-        catch_pokemon_button.setOnClickListener(view -> {
-            Intent activity_catch_pokemon = new Intent(getApplicationContext(), CatchPokemon.class);
-            activity_catch_pokemon.putExtra("key_user_id",user_id);
-            startActivity(activity_catch_pokemon);
+        catch_pokemon_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                catch_pokemon_button.setImageResource(0);
+                catch_pokemon_button.setImageResource(R.drawable.enter_pokemon_button_pressed);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                catch_pokemon_button.setImageResource(0);
+                catch_pokemon_button.setImageResource(R.drawable.enter_pokemon_button);
+                main_timer.cancel();
+                Intent activity_catch_pokemon = new Intent(getApplicationContext(), CatchPokemon.class);
+                activity_catch_pokemon.putExtra("key_user_id", user_id);
+                startActivity(activity_catch_pokemon);
+            }
+            return false;
         });
     }
     @Override
     public void onBackPressed()
     {
-
+        main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();

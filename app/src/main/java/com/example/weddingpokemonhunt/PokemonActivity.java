@@ -12,6 +12,33 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PokemonActivity extends AppCompatActivity {
+    String[] wedding_pokemon_names = {
+            "Bulbasaur",
+            "Charmander",
+            "Squirtle",
+            "Butterfree",
+            "Pikachu",
+            "Nidoking",
+            "Vulpix",
+            "Ninetales",
+            "Jigglypuff",
+            "Psyduck",
+            "Golduck",
+            "Arcanine",
+            "Alakazam",
+            "Ponyta",
+            "Haunter",
+            "Gengar",
+            "Onix",
+            "Hitmonchan",
+            "Lickitung",
+            "Scyther",
+            "Eevee",
+            "Articuno",
+            "Zapdos",
+            "Moltres",
+            "Dragonite",
+    };
     String[] pokemon_names = {
             "Bulbasaur",
             "Ivysaur",
@@ -165,19 +192,20 @@ public class PokemonActivity extends AppCompatActivity {
             "Mewtwo",
             "Mew"
     };
+    CountDownTimer main_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon);
         RelativeLayout main_timer_refresh = findViewById(R.id.pokemon_layout);
-        int timer_seconds = 5;
+
         //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer((timer_seconds*1000),300){
+        main_timer = new CountDownTimer(5000,1000){
             public void onTick(long millisUntilFinished){
                 //Do Nothing
             }
             public void onFinish(){
+                this.cancel();
                 Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(activityMain);
             }
@@ -187,7 +215,8 @@ public class PokemonActivity extends AppCompatActivity {
             main_timer.start();
         });
 
-        TypedArray pokemon_images = getResources().obtainTypedArray(R.array.pokemon_images);
+        //TypedArray pokemon_images = getResources().obtainTypedArray(R.array.pokemon_images);
+        TypedArray pokemon_images = getResources().obtainTypedArray(R.array.wedding_pokemon_images_hq);
 
         //Keys
         //username
@@ -195,14 +224,34 @@ public class PokemonActivity extends AppCompatActivity {
         String user_name = extras.getString("key_user_name");
         int pokemon_id = extras.getInt("key_pokemon_id");
         //GUI
+        TextView pokemon_info = findViewById(R.id.pokemon_info_string);
         TextView pokemon_name_text = findViewById(R.id.pokemon_name);
         TextView user_name_text = findViewById(R.id.pokemon_user);
         ImageView pokemon_image = findViewById(R.id.pokemon_pokemon);
 
-        pokemon_name_text.setText(pokemon_names[pokemon_id]);
-        user_name_text.setText(user_name);
-        pokemon_image.setBackgroundResource(pokemon_images.getResourceId(pokemon_id,0));
-
+        if(pokemon_id >= 100)
+        {
+            pokemon_info.setText("YOU ALREADY CAUGHT");
+            pokemon_name_text.setText(wedding_pokemon_names[pokemon_id-100]);
+            user_name_text.setText(user_name);
+            pokemon_image.setImageResource(0);
+            pokemon_image.setImageResource(R.drawable.pokeball);
+        }
+        else
+        {
+            pokemon_name_text.setText(wedding_pokemon_names[pokemon_id]);
+            //pokemon_name_text.setText(pokemon_names[pokemon_id]);
+            user_name_text.setText(user_name);
+            pokemon_image.setImageResource(0);
+            pokemon_image.setImageResource(pokemon_images.getResourceId(pokemon_id, 0));
+        }
         pokemon_images.recycle();
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent activityUser = new Intent(getApplicationContext(), ResumeUserActivity.class);
+        startActivity(activityUser);
+        super.onBackPressed();
     }
 }

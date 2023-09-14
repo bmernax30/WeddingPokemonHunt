@@ -44,7 +44,7 @@
             android:layout_below="@id/pokedex_user_name"
             android:text="@string/default_pokemon_score"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textStyle="bold" />
+            android:textColor="@color/pokemon_yellow" />
 
         <TextView
             android:id="@+id/pokedex_total_pokemon"
@@ -52,8 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/pokedex_user_name"
             android:layout_toEndOf="@id/pokedex_pokemon_caught"
-            android:text="@string/total_pokemon_score"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:text="@string/total_pokemon_wedding_score"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/pokemon_yellow" />
 
         <ProgressBar
             android:id="@+id/pokedex_pokemon_progress"
@@ -63,8 +64,7 @@
             android:layout_below="@id/pokedex_user_name"
             android:layout_alignBottom="@id/pokedex_total_pokemon"
             android:layout_toEndOf="@id/pokedex_total_pokemon"
-            android:max="150"
-            android:progress="50"
+            android:max="25"
             android:progressTint="@color/pokemon_yellow"
             android:scaleX=".9"
             android:scaleY="5" />

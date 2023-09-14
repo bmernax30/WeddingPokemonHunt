@@ -25,4 +25,5 @@ public class user_list {
     public void setUser_pokemon(int user_pokemon) {
         this.user_pokemon = user_pokemon;
     }
+
 }

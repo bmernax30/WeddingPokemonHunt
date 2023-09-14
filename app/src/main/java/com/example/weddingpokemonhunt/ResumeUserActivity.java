@@ -14,20 +14,20 @@ import java.util.ArrayList;
 public class ResumeUserActivity extends AppCompatActivity {
     private user_list_adapter user_adapter;
     private ArrayList<user_list> user;
+   // CountDownTimer main_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume_user);
 
-        LinearLayout main_timer_refresh = findViewById(R.id.resume_user_layout);
-        int timer_seconds = 10;
+        /*LinearLayout main_timer_refresh = findViewById(R.id.resume_user_layout);
         //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer((timer_seconds*1000),300){
+        main_timer = new CountDownTimer(10000,1000){
             public void onTick(long millisUntilFinished){
                 //Do Nothing
             }
             public void onFinish(){
+                this.cancel();
                 Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(activityMain);
             }
@@ -35,13 +35,14 @@ public class ResumeUserActivity extends AppCompatActivity {
         main_timer_refresh.setOnClickListener(view -> {
             main_timer.cancel();
             main_timer.start();
-        });
+        });*/
 
         String pokemon_file_name = File_Util.GetFileName(1);
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
         int total_players = File_Util.getTotalPlayers(pokemon_file);
         if(total_players == 0)
         {
+            //main_timer.cancel();
             Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(activityMain);
         }
@@ -66,6 +67,7 @@ public class ResumeUserActivity extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
+        //main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();

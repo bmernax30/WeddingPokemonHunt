@@ -3,6 +3,8 @@ package com.example.weddingpokemonhunt;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -51,14 +53,38 @@ public class MainActivity extends AppCompatActivity {
         {
             resume_button.setVisibility(View.VISIBLE);
         }
-        new_button.setOnClickListener(view -> {
+        new_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                new_button.setImageResource(0);
+                new_button.setImageResource(R.drawable.new_button_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                new_button.setImageResource(0);
+                new_button.setImageResource(R.drawable.new_button);
                 Intent activityNewUser = new Intent(getApplicationContext(), NewUserActivity.class);
                 startActivity(activityNewUser);
+            }
+            return false;
         });
 
-        resume_button.setOnClickListener(view -> {
+        resume_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                resume_button.setImageResource(0);
+                resume_button.setImageResource(R.drawable.resume_button_pressed);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                resume_button.setImageResource(0);
+                resume_button.setImageResource(R.drawable.resume_button);
                 Intent activityResumeUser = new Intent(getApplicationContext(), ResumeUserActivity.class);
                 startActivity(activityResumeUser);
+            }
+            return false;
         });
+    }
+    @Override
+    public void onBackPressed()
+    {
+        Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(activityMain);
+        super.onBackPressed();
     }
 }

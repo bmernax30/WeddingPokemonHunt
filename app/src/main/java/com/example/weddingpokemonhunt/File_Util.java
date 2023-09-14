@@ -9,10 +9,30 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class File_Util {
-    static int NUMBER_OF_POKEMON = 150;
+    static int num_finishers = 0;
+    //static int NUMBER_OF_POKEMON = 150;
+    static int NUMBER_OF_POKEMON = 25;
     private File_Util() {
     }
+    public static void incFinishers()
+    {
+        num_finishers++;
+    }
+    public static int finishers()
+    {
+        return num_finishers;
+    }
 
+    public static boolean getFoundPokemon(java.io.File file, int player_number, int pokemon_number)
+    {
+        String pokemon_string = getPokemonString(file,player_number);
+        char c = pokemon_string.charAt(pokemon_number);
+        if(c == '1')
+        {
+            return true;
+        }
+        return false;
+    }
     public static void setFoundPokemon(java.io.File file, int player_number, int pokemon_number, int found)
     {
         String current_string = getPokemonString(file,player_number);

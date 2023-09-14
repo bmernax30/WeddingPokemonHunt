@@ -10,4 +10,5 @@
     <color name="pokemon_blue">#FF3D7DCA</color>
     <color name="pokemon_dark_blue">#FF003A70</color>
     <color name="pokemon_yellow">#FFFFCB05</color>
+    <color name="pokemon_green">#FF00FF00</color>
 </resources>

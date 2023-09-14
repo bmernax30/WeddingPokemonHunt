@@ -3,6 +3,8 @@ package com.example.weddingpokemonhunt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,6 +19,33 @@ import java.io.IOException;
 public class CatchPokemon extends AppCompatActivity{
     int input_count = 0;
     String input_code = "";
+    String[] wedding_pokemon_codes = {
+            "GXUWC",
+            "SWFXU",
+            "XGAFS",
+            "WGLFS",
+            "XSWCF",
+            "CXLWA",
+            "UWCSX",
+            "GLXSC",
+            "GFWSA",
+            "GSXLC",
+            "LXFSC",
+            "GASWC",
+            "XGLUS",
+            "GCAUW",
+            "ASFLX",
+            "LUCFW",
+            "FSWXC",
+            "AUCSX",
+            "GALCS",
+            "UCLGX",
+            "WSLUC",
+            "GFAXU",
+            "SFALC",
+            "AFCUL",
+            "UGLWA"
+    };
     String[] pokemon_codes = {
             "GXUWC",
             "SWFXU",
@@ -322,20 +351,22 @@ public class CatchPokemon extends AppCompatActivity{
             //"Mew"
     };
     String button_array[] = {"A","F","S","X","U","C","W","L","G"};
+    CountDownTimer main_timer;
+    int wrong_answers = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_pokemon);
-
+        wrong_answers = 0;
         RelativeLayout main_timer_refresh = findViewById(R.id.catch_pokemon_layout);
-        int timer_seconds = 10;
+
         //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer((timer_seconds*1000),300){
+        main_timer = new CountDownTimer(30000,1000){
             public void onTick(long millisUntilFinished){
                 //Do Nothing
             }
             public void onFinish(){
+                this.cancel();
                 Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(activityMain);
             }
@@ -368,6 +399,8 @@ public class CatchPokemon extends AppCompatActivity{
         TextView input3 = findViewById(R.id.catch_pokemon_input3);
         TextView input4 = findViewById(R.id.catch_pokemon_input4);
         TextView input5 = findViewById(R.id.catch_pokemon_input5);
+        TextView wrong_answer_text = findViewById(R.id.catch_pokemon_wrong_answers);
+        wrong_answer_text.setVisibility(View.INVISIBLE);
         input_count = 0;
 
         //Selecting Button Icons
@@ -1210,255 +1243,306 @@ public class CatchPokemon extends AppCompatActivity{
 
             }
         }
-
-        button1.setOnClickListener(view -> {
-            input_code = input_code + button_array[0];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
+        button1.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button1.setImageResource(0);
+                button1.setImageResource(R.drawable.unknown_button_a_pressed);
             }
-
-            input_count++;
-        });
-        button2.setOnClickListener(view -> {
-            input_code = input_code + button_array[1];
-            switch(input_count)
+            else if (event.getAction() == MotionEvent.ACTION_UP)
             {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button3.setOnClickListener(view -> {
-            input_code = input_code + button_array[2];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button4.setOnClickListener(view -> {
-            input_code = input_code + button_array[3];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button5.setOnClickListener(view -> {
-            input_code = input_code + button_array[4];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button6.setOnClickListener(view -> {
-            input_code = input_code + button_array[5];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button7.setOnClickListener(view -> {
-            input_code = input_code + button_array[6];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button8.setOnClickListener(view -> {
-            input_code = input_code + button_array[7];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        button9.setOnClickListener(view -> {
-            input_code = input_code + button_array[8];
-            switch(input_count)
-            {
-                default:
-                case 0:
-                    input1.setText("*");
-                    break;
-                case 1:
-                    input2.setText("*");
-                    break;
-                case 2:
-                    input3.setText("*");
-                    break;
-                case 3:
-                    input4.setText("*");
-                    break;
-                case 4:
-                    input5.setText("*");
-                    break;
-            }
-            input_count++;
-        });
-        clear_button.setOnClickListener(view -> {
-            input_count = 0;
-            input1.setText("_");
-            input2.setText("_");
-            input3.setText("_");
-            input4.setText("_");
-            input5.setText("_");
-            input_code = "";
-        });
-        enter_button.setOnClickListener(view -> {
-            int pokemon_caught = 0;
-            int pokemon_id = 0;
-            if(input_count != 5)
-            {
-                return;
-            }
-            //Check if its valid pokemon code
-            for(int i=0; i < 151; i++)
-            {
-                if(input_code.equals(pokemon_codes[i]))
+                view.performClick();
+                button1.setImageResource(0);
+                button1.setImageResource(R.drawable.unknown_button_a);
+                input_code = input_code + button_array[0];
+                switch(input_count)
                 {
-                    pokemon_caught = 1;
-                    pokemon_id = i;
-                    break;
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
                 }
+
+                input_count++;
             }
-            if(pokemon_caught == 1) {
-                String test = File_Util.ReadFile(pokemon_file);
-                File_Util.setFoundPokemon(pokemon_file, player_number+1, pokemon_id+1, 1);
-                test = File_Util.ReadFile(pokemon_file);
-                //Some Screen Saying you caught a pokemon
-                //Launch back to pokedex screen
-                Intent activity_pokemon = new Intent(getApplicationContext(), PokemonActivity.class);
-                //username
-                activity_pokemon.putExtra("key_user_name",File_Util.getUser(pokemon_file,player_number+1));
-                activity_pokemon.putExtra("key_pokemon_id",pokemon_id);
-                startActivity(activity_pokemon);
+            return false;
+        });
+        button2.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button2.setImageResource(0);
+                button2.setImageResource(R.drawable.unknown_button_f_pressed);
             }
-            else
-            {
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button2.setImageResource(0);
+                button2.setImageResource(R.drawable.unknown_button_f);
+                input_code = input_code + button_array[1];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button3.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button3.setImageResource(0);
+                button3.setImageResource(R.drawable.unknown_button_s_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button3.setImageResource(0);
+                button3.setImageResource(R.drawable.unknown_button_s);
+                input_code = input_code + button_array[2];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button4.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button4.setImageResource(0);
+                button4.setImageResource(R.drawable.unknown_button_x_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button4.setImageResource(0);
+                button4.setImageResource(R.drawable.unknown_button_x);
+                input_code = input_code + button_array[3];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button5.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button5.setImageResource(0);
+                button5.setImageResource(R.drawable.unknown_button_u_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button5.setImageResource(0);
+                button5.setImageResource(R.drawable.unknown_button_u);
+
+                input_code = input_code + button_array[4];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button6.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button6.setImageResource(0);
+                button6.setImageResource(R.drawable.unknown_button_c_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button6.setImageResource(0);
+                button6.setImageResource(R.drawable.unknown_button_c);
+                input_code = input_code + button_array[5];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button7.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button7.setImageResource(0);
+                button7.setImageResource(R.drawable.unknown_button_w_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button7.setImageResource(0);
+                button7.setImageResource(R.drawable.unknown_button_w);
+                input_code = input_code + button_array[6];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button8.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button8.setImageResource(0);
+                button8.setImageResource(R.drawable.unknown_button_l_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button8.setImageResource(0);
+                button8.setImageResource(R.drawable.unknown_button_l);
+                input_code = input_code + button_array[7];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        button9.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                button9.setImageResource(0);
+                button9.setImageResource(R.drawable.unknown_button_g_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                button9.setImageResource(0);
+                button9.setImageResource(R.drawable.unknown_button_g);
+                input_code = input_code + button_array[8];
+                switch (input_count) {
+                    default:
+                    case 0:
+                        input1.setText("*");
+                        break;
+                    case 1:
+                        input2.setText("*");
+                        break;
+                    case 2:
+                        input3.setText("*");
+                        break;
+                    case 3:
+                        input4.setText("*");
+                        break;
+                    case 4:
+                        input5.setText("*");
+                        break;
+                }
+                input_count++;
+            }
+            return false;
+        });
+        clear_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                clear_button.setImageResource(0);
+                clear_button.setImageResource(R.drawable.clear_button_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                clear_button.setImageResource(0);
+                clear_button.setImageResource(R.drawable.clear_button);
                 input_count = 0;
                 input1.setText("_");
                 input2.setText("_");
@@ -1466,12 +1550,78 @@ public class CatchPokemon extends AppCompatActivity{
                 input4.setText("_");
                 input5.setText("_");
                 input_code = "";
+                wrong_answers = 0;
+                wrong_answer_text.setVisibility(View.INVISIBLE);
             }
+            return false;
+        });
+        enter_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                enter_button.setImageResource(0);
+                enter_button.setImageResource(R.drawable.enter_button_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                enter_button.setImageResource(0);
+                enter_button.setImageResource(R.drawable.enter_button);
+                int pokemon_caught = 0;
+                int pokemon_id = 0;
+                String wrong_answer_error;
+                Intent activity_pokemon = new Intent(getApplicationContext(), PokemonActivity.class);
+                if (input_count != 5) {
+                    return false;
+                }
+                //Check if its valid pokemon code
+                //Wedding Pokemon is a 25 count
+                for (int i = 0; i < 25; i++) {
+                    //if(input_code.equals(pokemon_codes[i]))
+                    if (input_code.equals(wedding_pokemon_codes[i])) {
+                        pokemon_caught = 1;
+                        pokemon_id = i;
+                        break;
+                    }
+                }
+                if (pokemon_caught == 1) {
+                    String test = File_Util.ReadFile(pokemon_file);
+                    if (File_Util.getFoundPokemon(pokemon_file, player_number + 1, pokemon_id)) {
+                        pokemon_id = 100 + pokemon_id;
+                    } else {
+                        File_Util.setFoundPokemon(pokemon_file, player_number + 1, pokemon_id + 1, 1);
+                    }
+                    //Some Screen Saying you caught a pokemon
+                    //Launch back to pokedex screen
+
+                    //username
+                    main_timer.cancel();
+                    activity_pokemon.putExtra("key_user_name", File_Util.getUser(pokemon_file, player_number + 1));
+                    activity_pokemon.putExtra("key_pokemon_id", pokemon_id);
+                    startActivity(activity_pokemon);
+                } else {
+                    wrong_answer_text.setVisibility(View.VISIBLE);
+                    wrong_answers++;
+                    wrong_answer_error = "Wrong Code- " + (3 - wrong_answers) + " more attempts!";
+                    wrong_answer_text.setText(wrong_answer_error);
+                    //3 Wrong Answers go to main
+                    if (wrong_answers == 3) {
+                        main_timer.cancel();
+                        Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(activityMain);
+                    }
+                    input_count = 0;
+                    input1.setText("_");
+                    input2.setText("_");
+                    input3.setText("_");
+                    input4.setText("_");
+                    input5.setText("_");
+                    input_code = "";
+                }
+            }
+            return false;
         });
     }
     @Override
     public void onBackPressed()
     {
+        //main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();
