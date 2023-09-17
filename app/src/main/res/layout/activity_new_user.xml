@@ -71,9 +71,11 @@
 
         <EditText
             android:id="@+id/new_user_name_input"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/white"
             android:ems="10"
             android:hint="@string/new_user_name_input_hint"
@@ -92,6 +94,14 @@
             android:scaleX=".8"
             android:scaleY=".8"
             app:srcCompat="@drawable/gotta_catchemall_button" />
+
+        <ImageButton
+            android:id="@+id/new_user_home_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pokemon_dark_blue"
+            android:contentDescription="@string/new_user_home_button_description"
+            app:srcCompat="@drawable/home_button_v2" />
 
     </LinearLayout>
 

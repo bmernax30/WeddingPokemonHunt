@@ -3,6 +3,8 @@ package com.example.weddingpokemonhunt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,22 +21,20 @@ public class InstructionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
 
-        RelativeLayout timer_refresh = findViewById(R.id.instructions_layout);
-        //Init Timer
-        main_timer = new CountDownTimer(15000,1000){
-            public void onTick(long millisUntilFinished){
-                //Do Nothing
+        ImageButton home_button = findViewById(R.id.instructions_home_button);
+        home_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2_pressed);
             }
-            public void onFinish(){
-                this.cancel();
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2);
                 Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(activityMain);
             }
-        }.start();
-
-        timer_refresh.setOnClickListener(view -> {
-            main_timer.cancel();
-            main_timer.start();
+            return false;
         });
     }
     @Override public void onBackPressed()

@@ -133,32 +133,6 @@
             android:gravity="center">
 
             <ImageButton
-                android:id="@+id/catch_pokemon_clear_button"
-                android:layout_width="@dimen/catch_pokemon_button_width"
-                android:layout_height="@dimen/catch_pokemon_button_height"
-                android:layout_below="@id/catch_pokemon_btn9"
-                android:layout_alignParentRight="false"
-                android:layout_alignParentBottom="false"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_toRightOf="@id/catch_pokemon_btn8"
-                android:background="@color/pokemon_dark_blue"
-                android:contentDescription="@string/catch_pokemon_clear_button"
-                app:srcCompat="@drawable/clear_button" />
-
-            <ImageButton
-                android:id="@+id/catch_pokemon_enter_button"
-                android:layout_width="@dimen/catch_pokemon_button_width"
-                android:layout_height="@dimen/catch_pokemon_button_height"
-                android:layout_below="@id/catch_pokemon_btn7"
-                android:layout_alignParentLeft="false"
-                android:layout_alignParentBottom="false"
-                android:layout_marginTop="@dimen/catch_pokemon_margin"
-                android:layout_toLeftOf="@id/catch_pokemon_btn8"
-                android:background="@color/pokemon_dark_blue"
-                android:contentDescription="@string/catch_pokemon_enter_button"
-                app:srcCompat="@drawable/enter_button" />
-
-            <ImageButton
                 android:id="@+id/catch_pokemon_btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -250,6 +224,44 @@
                 android:background="@color/pokemon_dark_blue"
                 android:contentDescription="@string/catch_pokemon_button8"
                 app:srcCompat="@drawable/unknown_button_z" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/catch_pokemon_btn7"
+                android:layout_marginTop="@dimen/catch_pokemon_margin"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/catch_pokemon_enter_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/pokemon_dark_blue"
+                    android:contentDescription="@string/catch_pokemon_enter_button"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/enter_button" />
+
+                <ImageButton
+                    android:id="@+id/catch_pokemon_home_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/pokemon_dark_blue"
+                    android:contentDescription="@string/catch_pokemon_home_button_description"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/home_button_v2" />
+
+                <ImageButton
+                    android:id="@+id/catch_pokemon_clear_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/pokemon_dark_blue"
+                    android:contentDescription="@string/catch_pokemon_clear_button"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/clear_button" />
+            </LinearLayout>
 
         </RelativeLayout>
 

@@ -20,13 +20,16 @@
     <!-- NEW USER -->
     <string name="new_user_title">NEW USER!</string>
     <string name="new_user_description">Welcome to the wonderful world of Pokemon.</string>
-    <string name="new_user_instructions">Type your name and begin your Pokemon journey.</string>
+    <string name="new_user_instructions">Type your name and click "GOTTA CATCHEM ALL".</string>
     <string name="new_user_start_button_content_description">GOTTA CATCHEM ALL</string>
-    <string name="new_user_name_input_hint">Enter Name</string>
+    <string name="new_user_name_input_hint">Enter First Name</string>
     <string name="new_user_input_error">Error: User name already selected.</string>
-    <string name="resume_user_title">RESUME USER</string>
+    <string name="new_user_home_button_description">Go to home screen.</string>
 
-    <string name="instructions_title">INSTRUCTIONS</string>
+    <!-- RESUME USER -->
+    <string name="resume_user_home_button_description">Go to home screen.</string>
+    <string name="resume_user_title">RESUME USER</string>
+    <string name="resume_user_instruction">SCROLL DOWN AND CLICK YOUR NAME TO ENTER POKEMON</string>
 
     <!-- POKEMON LIST -->
     <string name="unknown_pokemon">"?????"</string>
@@ -43,6 +46,7 @@
     <string name="total_pokemon_wedding_score">/25</string>
     <string name="pokedex_header">POKEDEX</string>
     <string name="pokedex_catch_pokemon">Catch Pokemon Button</string>
+    <string name="pokedex_home_button_description">Go to home screen.</string>
 
     <!--- User -->
     <string name="user_default_score">0</string>
@@ -67,14 +71,16 @@
     <string name="catch_pokemon_enter_button">Enter Button</string>
     <string name="catch_pokemon_clear_button">Clear Button</string>
     <string name="catch_pokemon_wrong_answer">Wrong Code- 2 more attempts!</string>
-
+    <string name="catch_pokemon_home_button_description">Go to home screen.</string>
     <!--- Instructions -->
     <string name="instrutions_1">1.) Find Pokeballs and Remember the Code</string>
-
+    <string name="instructions_home_button_description">Go to home screen.</string>
+    <string name="instructions_title">INSTRUCTIONS</string>
     <!--- Pokemon -->
     <string name="pokemon_title">POKEMON</string>
     <string name="pokemon_user">BARNEY</string>
     <string name="pokemon_string1">YOU CAUGHT A...</string>
     <string name="pokemon_pokemon">CHARIZARD</string>
     <string name="pokemon_caught_description">This is the pokemon that was caught.</string>
+    <string name="pokemon_home_button_description">Go to home screen.</string>
 </resources>

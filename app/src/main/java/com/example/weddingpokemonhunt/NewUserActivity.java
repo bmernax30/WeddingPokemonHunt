@@ -25,23 +25,7 @@ public class NewUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_user);
 
         LinearLayout main_timer_refresh = findViewById(R.id.new_user_layout);
-        //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer(10000,1000){
-            public void onTick(long millisUntilFinished){
-                //Do Nothing
-            }
-            public void onFinish(){
-                this.cancel();
-                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(activityMain);
-            }
-        }.start();
-        main_timer_refresh.setOnClickListener(view -> {
-            main_timer.cancel();
-            main_timer.start();
-        });
-        main_timer.cancel();
+
         ImageButton start_adv_button = findViewById(R.id.new_user_start_button);
         EditText user_name = findViewById(R.id.new_user_name_input);
         TextView user_description = findViewById(R.id.new_user_description);
@@ -52,6 +36,7 @@ public class NewUserActivity extends AppCompatActivity {
                 start_adv_button.setImageResource(0);
                 start_adv_button.setImageResource(R.drawable.gotta_catchemall_button_pressed);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
                 start_adv_button.setImageResource(0);
                 start_adv_button.setImageResource(R.drawable.gotta_catchemall_button);
                 //Don't do anything if no user name is selected
@@ -78,6 +63,7 @@ public class NewUserActivity extends AppCompatActivity {
                 }
 
                 if (user_found_flag) {
+                    view.performClick();
                     user_description.setVisibility(View.INVISIBLE);
                     user_instructions.setText(getResources().getString(R.string.new_user_input_error));
                 } else {
@@ -85,7 +71,21 @@ public class NewUserActivity extends AppCompatActivity {
                     Intent activityInstructions = new Intent(getApplicationContext(), InstructionsActivity.class);
                     startActivity(activityInstructions);
                 }
-                main_timer.cancel();
+            }
+            return false;
+        });
+        ImageButton home_button = findViewById(R.id.new_user_home_button);
+        home_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2);
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
             }
             return false;
         });

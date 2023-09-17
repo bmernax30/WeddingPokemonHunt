@@ -351,30 +351,13 @@ public class CatchPokemon extends AppCompatActivity{
             //"Mew"
     };
     String button_array[] = {"A","F","S","X","U","C","W","L","G"};
-    CountDownTimer main_timer;
     int wrong_answers = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_pokemon);
         wrong_answers = 0;
-        RelativeLayout main_timer_refresh = findViewById(R.id.catch_pokemon_layout);
 
-        //Init Timer
-        main_timer = new CountDownTimer(30000,1000){
-            public void onTick(long millisUntilFinished){
-                //Do Nothing
-            }
-            public void onFinish(){
-                this.cancel();
-                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(activityMain);
-            }
-        }.start();
-        main_timer_refresh.setOnClickListener(view -> {
-            main_timer.cancel();
-            main_timer.start();
-        });
         //Holds which letters you want as buttons
         input_code = "";
         String pokemon_file_name = File_Util.GetFileName(1);
@@ -1591,7 +1574,6 @@ public class CatchPokemon extends AppCompatActivity{
                     //Launch back to pokedex screen
 
                     //username
-                    main_timer.cancel();
                     activity_pokemon.putExtra("key_user_name", File_Util.getUser(pokemon_file, player_number + 1));
                     activity_pokemon.putExtra("key_pokemon_id", pokemon_id);
                     startActivity(activity_pokemon);
@@ -1602,7 +1584,6 @@ public class CatchPokemon extends AppCompatActivity{
                     wrong_answer_text.setText(wrong_answer_error);
                     //3 Wrong Answers go to main
                     if (wrong_answers == 3) {
-                        main_timer.cancel();
                         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(activityMain);
                     }
@@ -1617,11 +1598,25 @@ public class CatchPokemon extends AppCompatActivity{
             }
             return false;
         });
+        ImageButton home_button = findViewById(R.id.catch_pokemon_home_button);
+        home_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2);
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
+            }
+            return false;
+        });
     }
     @Override
     public void onBackPressed()
     {
-        //main_timer.cancel();
         Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(activityMain);
         super.onBackPressed();

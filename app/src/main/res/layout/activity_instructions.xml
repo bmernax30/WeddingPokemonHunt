@@ -31,5 +31,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/instructions_title"
             app:srcCompat="@drawable/instructions" />
+
+        <ImageButton
+            android:id="@+id/instructions_home_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/instructions_image"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/pokemon_dark_blue"
+            android:contentDescription="@string/instructions_home_button_description"
+            app:srcCompat="@drawable/home_button_v2" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

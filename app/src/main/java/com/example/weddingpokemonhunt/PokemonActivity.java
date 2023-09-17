@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -199,22 +201,6 @@ public class PokemonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pokemon);
         RelativeLayout main_timer_refresh = findViewById(R.id.pokemon_layout);
 
-        //Init Timer
-        main_timer = new CountDownTimer(5000,1000){
-            public void onTick(long millisUntilFinished){
-                //Do Nothing
-            }
-            public void onFinish(){
-                this.cancel();
-                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(activityMain);
-            }
-        }.start();
-        main_timer_refresh.setOnClickListener(view -> {
-            main_timer.cancel();
-            main_timer.start();
-        });
-
         //TypedArray pokemon_images = getResources().obtainTypedArray(R.array.pokemon_images);
         TypedArray pokemon_images = getResources().obtainTypedArray(R.array.wedding_pokemon_images_hq);
 
@@ -246,6 +232,22 @@ public class PokemonActivity extends AppCompatActivity {
             pokemon_image.setImageResource(pokemon_images.getResourceId(pokemon_id, 0));
         }
         pokemon_images.recycle();
+
+        ImageButton home_button = findViewById(R.id.pokemon_home_button);
+        home_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2);
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
+            }
+            return false;
+        });
     }
     @Override
     public void onBackPressed()

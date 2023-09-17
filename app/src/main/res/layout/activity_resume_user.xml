@@ -30,6 +30,23 @@
             android:textColor="@color/pokemon_dark_blue"
             android:textStyle="bold" />
 
+        <ImageButton
+            android:id="@+id/resume_user_home_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/pokemon_dark_blue"
+            android:contentDescription="@string/resume_user_home_button_description"
+            app:srcCompat="@drawable/home_button_v2" />
+
+        <TextView
+            android:id="@+id/resume_user_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resume_user_instruction"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/pokemon_yellow" />
+
         <ListView
             android:id="@+id/resume_user_list"
             android:layout_width="match_parent"

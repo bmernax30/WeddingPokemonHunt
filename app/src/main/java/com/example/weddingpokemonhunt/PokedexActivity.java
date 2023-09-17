@@ -30,26 +30,6 @@ public class PokedexActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokedex);
 
-        RelativeLayout main_timer_refresh = findViewById(R.id.pokedex_layout);
-
-        //Init Timer
-        CountDownTimer main_timer;
-        main_timer = new CountDownTimer(10000,1000){
-            public void onTick(long millisUntilFinished){
-                //Do Nothing
-            }
-            public void onFinish(){
-                this.cancel();
-                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(activityMain);
-            }
-        }.start();
-        main_timer_refresh.setOnClickListener(view -> {
-            main_timer.cancel();
-            main_timer.start();
-        });
-
-        main_timer.cancel();
         String pokemon_file_name = File_Util.GetFileName(1);
         File pokemon_file = new File(getApplicationContext().getFilesDir(),pokemon_file_name);
 
@@ -148,12 +128,27 @@ public class PokedexActivity extends AppCompatActivity {
                 catch_pokemon_button.setImageResource(0);
                 catch_pokemon_button.setImageResource(R.drawable.enter_pokemon_button_pressed);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
                 catch_pokemon_button.setImageResource(0);
                 catch_pokemon_button.setImageResource(R.drawable.enter_pokemon_button);
-                main_timer.cancel();
                 Intent activity_catch_pokemon = new Intent(getApplicationContext(), CatchPokemon.class);
                 activity_catch_pokemon.putExtra("key_user_id", user_id);
                 startActivity(activity_catch_pokemon);
+            }
+            return false;
+        });
+        ImageButton home_button = findViewById(R.id.pokedex_home_button);
+        home_button.setOnTouchListener((view,event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2_pressed);
+            }
+            else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
+                home_button.setImageResource(0);
+                home_button.setImageResource(R.drawable.home_button_v2);
+                Intent activityMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(activityMain);
             }
             return false;
         });

@@ -80,12 +80,24 @@
             android:contentDescription="@string/pokedex_catch_pokemon"
             app:srcCompat="@drawable/enter_pokemon_button" />
 
+        <ImageButton
+            android:id="@+id/pokedex_home_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokedex_catch_pokemon_button"
+            android:layout_centerHorizontal="true"
+            android:background="@color/pokemon_blue"
+            android:contentDescription="@string/pokedex_home_button_description"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            app:srcCompat="@drawable/home_button_v2" />
+
         <ListView
             android:id="@+id/pokedex_activity_pokemon_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/pokedex_catch_pokemon_button"
-            android:layout_marginTop="@dimen/catch_pokemon_margin" />
+            android:layout_below="@id/pokedex_home_button"
+            android:layout_marginTop="8dp" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

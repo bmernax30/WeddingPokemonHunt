@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 new_button.setImageResource(R.drawable.new_button_pressed);
             }
             else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
                 new_button.setImageResource(0);
                 new_button.setImageResource(R.drawable.new_button);
                 Intent activityNewUser = new Intent(getApplicationContext(), NewUserActivity.class);
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 resume_button.setImageResource(0);
                 resume_button.setImageResource(R.drawable.resume_button_pressed);
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                view.performClick();
                 resume_button.setImageResource(0);
                 resume_button.setImageResource(R.drawable.resume_button);
                 Intent activityResumeUser = new Intent(getApplicationContext(), ResumeUserActivity.class);
